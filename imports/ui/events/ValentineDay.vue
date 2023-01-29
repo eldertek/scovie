@@ -4,16 +4,51 @@
         <nav class="navbar fixed-bottom bg-white" style="--bs-bg-opacity: .20;">
             <div class="container-fluid d-flex justify-content-center align-items-center">
                 <span class="navbar-brand mb-0 vfont-size text-light">
-                    Lycée Georges Brassens vous souhaite une heureuse Saint-Valentin !
+                    {{ enterpriseName }} vous souhaite une heureuse Saint-Valentin !
                 </span>
             </div>
         </nav>
     </footer>
 </template>
 <script>
+// Import axios for HTTP requests
+import axios from 'axios';
+// Export the component
 export default {
+    // The component's name
     name: "ValentineDayComponent",
+    // The component's data
+    data() {
+        // Return the data
+        return {
+            // The enterprise name
+            enterpriseName: ""
+        }
+    },
+    methods: {
+        // Fetch the configuration
+        fetchConfiguration() {
+            axios.get('http://localhost:3000/api/configuration')
+                .then(response => {
+                    this.enterpriseName = response.data.find(o => o.name === 'enterprise_name').value;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        // Update the max visible announcements
+        updateMaxVisible() {
+            this.$forceUpdate();
+        }
+    },
+    // The component's mounted hook
     mounted() {
+        // Fetch the configuration
+        this.fetchConfiguration();
+        setInterval(() => {
+            this.fetchConfiguration();
+        }, 1000 * 60 * 5);
+        // Request animation frame polyfill
         window.requestAnimationFrame =
             window.__requestAnimationFrame ||
             window.requestAnimationFrame ||
@@ -47,22 +82,18 @@ export default {
             var rand = Math.random;
             ctx.fillStyle = "rgba(0,0,0,1)";
             ctx.fillRect(0, 0, width, height);
-
             var heartPosition = function (rad) {
-                //return [Math.sin(rad), Math.cos(rad)];
                 return [Math.pow(Math.sin(rad), 3), -(15 * Math.cos(rad) - 5 * Math.cos(2 * rad) - 2 * Math.cos(3 * rad) - Math.cos(4 * rad))];
             };
             var scaleAndTranslate = function (pos, sx, sy, dx, dy) {
                 return [dx + pos[0] * sx, dy + pos[1] * sy];
             };
-
             window.addEventListener('resize', function () {
                 width = canvas.width = koef * innerWidth;
                 height = canvas.height = koef * innerHeight;
                 ctx.fillStyle = "rgba(0,0,0,1)";
                 ctx.fillRect(0, 0, width, height);
             });
-
             var traceCount = mobile ? 20 : 50;
             var pointsOrigin = [];
             var i;
@@ -71,7 +102,6 @@ export default {
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, 0));
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, 0));
             var heartPointsCount = pointsOrigin.length;
-
             var targetPoints = [];
             var pulse = function (kx, ky) {
                 for (i = 0; i < pointsOrigin.length; i++) {
@@ -80,7 +110,6 @@ export default {
                     targetPoints[i][1] = ky * pointsOrigin[i][1] + height / 2;
                 }
             };
-
             var e = [];
             for (i = 0; i < heartPointsCount; i++) {
                 var x = rand() * width;
@@ -149,20 +178,15 @@ export default {
                         ctx.fillRect(u.trace[k].x, u.trace[k].y, 1, 1);
                     }
                 }
-                //ctx.fillStyle = "rgba(255,255,255,1)";
-                //for (i = u.trace.length; i--;) ctx.fillRect(targetPoints[i][0], targetPoints[i][1], 2, 2);
-
                 window.requestAnimationFrame(loop, canvas);
             };
             loop();
         };
-
         var s = document.readyState;
         if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
         else document.addEventListener('DOMContentLoaded', init, false);
     }
 }
-
 </script>
 <style scoped>
 canvas {

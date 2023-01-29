@@ -30,46 +30,83 @@
     </div>
 </template>
 <script>
+// Import axios for HTTP requests
+import axios from 'axios'
+// Export the component
 export default {
+    // The component's name
     name: "PlanningComponent",
+    // The component's data
+    data() {
+        // Return the data
+        return {
+            // The times
+            times: [],
+            // The rooms
+            rooms: [],
+            // The planning
+            planning: []
+        }
+    },
+    // The component's computed properties
     computed: {
+        // Filter the rooms
         filteredRooms() {
             return this.rooms.filter(room => this.hasTeacher(room.name))
         }
     },
+    // The component's mounted hook
+    mounted() {
+        // Fetch all
+        this.fetchTimes();
+        this.fetchRooms();
+        this.fetchPlanning();
+        // Fetch all every 5 minutes
+        setInterval(() => {
+            this.fetchTimes();
+            this.fetchRooms();
+            this.fetchPlanning();
+        }, 1000 * 60 * 5);
+    },
+    // The component's methods
     methods: {
+        // Fetch the times
+        fetchTimes() {
+            // Get the configuration
+            axios.get('http://localhost:3000/api/times')
+                .then(response => {
+                    this.times = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        // Fetch the rooms
+        fetchRooms() {
+            // Get the configuration
+            axios.get('http://localhost:3000/api/rooms')
+                .then(response => {
+                    this.rooms = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        // Fetch the planning
+        fetchPlanning() {
+            // Get the configuration
+            axios.get('http://localhost:3000/api/planning')
+                .then(response => {
+                    this.planning = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        // Check if a room has a teacher
         hasTeacher(roomName) {
             return this.planning.some(plan => plan.room === roomName)
         }
     },
-    data() {
-        return {
-            times: [
-                { id: 1, name: "M1" },
-                { id: 2, name: "M2" },
-                { id: 3, name: "M3" },
-                { id: 4, name: "M4" },
-                { id: 5, name: "S1" },
-                { id: 6, name: "S2" },
-                { id: 7, name: "S3" },
-                { id: 8, name: "S4" },
-            ],
-            rooms: [ 
-                { id: 1, name: "A10" },
-                { id: 2, name: "A20" },
-                { id: 3, name: "A30" },
-                { id: 4, name: "A40" },
-                { id: 5, name: "A50" },
-                { id: 6, name: "A60" },
-                { id: 7, name: "A70" },
-            ],
-            planning: [
-                { id: 1, time: 'M1', room: 'A20', teacher: 'Mr. Smith' },
-                { id: 2, time: 'M2', room: 'A30', teacher: 'Mrs. Johnson' },
-                { id: 3, time: 'S3', room: 'A50', teacher: 'Mr. Williams' },
-                { id: 4, time: 'S4', room: 'A70', teacher: 'Mrs. Jones' },
-            ]
-        }
-    }
 }
 </script>

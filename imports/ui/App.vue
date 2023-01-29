@@ -78,10 +78,10 @@ export default {
       }
 
       // Add valentine day to screen modes
-      if (today.getMonth() === 0 && today.getDate() === 29 && !screenModes.includes('valentine')) {
+      if (today.getMonth() === 1 && today.getDate() === 14 && !screenModes.includes('valentine')) {
         // Add valentine day to the list of screen modes
         screenModes.push('valentine');
-      } else if (today.getMonth() === 0 && today.getDate() !== 29 && screenModes.includes('valentine')) {
+      } else if (today.getMonth() === 1 && today.getDate() !== 14 && screenModes.includes('valentine')) {
         // Remove valentine day from the list of screen modes
         screenModes.splice(screenModes.indexOf('valentine'), 1);
       }

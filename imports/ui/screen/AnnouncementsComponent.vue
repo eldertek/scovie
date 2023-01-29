@@ -24,39 +24,61 @@
     </div>
 </template>
 <script>
+// Import axios for HTTP requests
+import axios from 'axios';
+// Export the component
 export default {
+    // The component's name
     name: "AnnouncementsComponent",
+    // The component's data
     data() {
+        // Return the data
         return {
-            announcements: [
-                { id: 0, type: "ABSENCE", text: "Le professeur de mathématiques est absent" },
-                { id: 1, type: "ABSENCE", text: "Le professeur de français est absent" },
-                { id: 2, type: "ABSENCE", text: "Le professeur de mathématiques est absent" },
-                { id: 3, type: "ABSENCE", text: "Le professeur de physique est absent" },
-                { id: 4, type: "ABSENCE", text: "Le professeur de emc est absent" },
-                { id: 5, type: "ABSENCE", text: "Le professeur de philosophie est absent" },
-                { id: 6, type: "ABSENCE", text: "Le professeur de histoire est absent" },
-                { id: 7, type: "ABSENCE", text: "Le professeur de géographie est absent" },
-                { id: 8, type: "ABSENCE", text: "Le professeur de humanité est absent" },
-                { id: 9, type: "ABSENCE", text: "Le professeur de eps est absent" },
-            ],
+            // The announcements
+            announcements: [],
+            // The current index
             currentIndex: 0
         }
     },
+    // The component's mounted hook
     mounted() {
+        // Fetch the announcements
+        this.fetchAnnouncements();
         setInterval(() => {
-            console.log(this.currentIndex);
+            this.fetchAnnouncements();
+        }, 1000 * 60 * 5);
+        // Increment the current index every 3 seconds for the visible announcements
+        setInterval(() => {
             this.currentIndex = (this.currentIndex + 1) % this.announcements.length;
-            console.log('next');
-            console.log(this.currentIndex);
         }, 3000);
+        // Update the max visible announcements on resize
         window.addEventListener("resize", this.updateMaxVisible);
     },
+    // The component's methods
+    methods: {
+        // Fetch the announcements
+        fetchAnnouncements() {
+            // Fetch from the API
+            axios.get('http://localhost:3000/api/announcements')
+                .then(response => {
+                    this.announcements = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        // Update the max visible announcements
+        updateMaxVisible() {
+            this.$forceUpdate();
+        }
+    },
+    // The component's computed properties
     computed: {
+        // The visible announcements
         visibleAnnouncements() {
-            console.log(this.announcements.slice(this.currentIndex, this.currentIndex + this.maxVisible));
             return this.announcements.slice(this.currentIndex, this.currentIndex + this.maxVisible);
         },
+        // The max visible announcements
         maxVisible() {
             if (window.innerWidth < 1800) {
                 return 1;
@@ -69,11 +91,6 @@ export default {
             } else {
                 return 5;
             }
-        }
-    },
-    methods: {
-        updateMaxVisible() {
-            this.$forceUpdate();
         }
     }
 }
