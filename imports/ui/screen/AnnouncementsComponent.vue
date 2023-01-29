@@ -28,30 +28,33 @@ export default {
     name: "AnnouncementsComponent",
     data() {
         return {
-            announcements: [{
-                id: 0, type: "ABSENCE", text: "Le professeur de mathématiques est absent",
-                id: 1, type: "ABSENCE", text: "Le professeur de français est absent",
-                id: 2, type: "ABSENCE", text: "Le professeur de mathématiques est absent",
-                id: 3, type: "ABSENCE", text: "Le professeur de physique est absent",
-                id: 4, type: "ABSENCE", text: "Le professeur de emc est absent",
-                id: 5, type: "ABSENCE", text: "Le professeur de philosophie est absent",
-                id: 6, type: "ABSENCE", text: "Le professeur de histoire est absent",
-                id: 7, type: "ABSENCE", text: "Le professeur de géographie est absent",
-                id: 8, type: "ABSENCE", text: "Le professeur de humanité est absent",
-                id: 9, type: "ABSENCE", text: "Le professeur de eps est absent",
-
-            }],
+            announcements: [
+                { id: 0, type: "ABSENCE", text: "Le professeur de mathématiques est absent" },
+                { id: 1, type: "ABSENCE", text: "Le professeur de français est absent" },
+                { id: 2, type: "ABSENCE", text: "Le professeur de mathématiques est absent" },
+                { id: 3, type: "ABSENCE", text: "Le professeur de physique est absent" },
+                { id: 4, type: "ABSENCE", text: "Le professeur de emc est absent" },
+                { id: 5, type: "ABSENCE", text: "Le professeur de philosophie est absent" },
+                { id: 6, type: "ABSENCE", text: "Le professeur de histoire est absent" },
+                { id: 7, type: "ABSENCE", text: "Le professeur de géographie est absent" },
+                { id: 8, type: "ABSENCE", text: "Le professeur de humanité est absent" },
+                { id: 9, type: "ABSENCE", text: "Le professeur de eps est absent" },
+            ],
             currentIndex: 0
         }
     },
     mounted() {
         setInterval(() => {
+            console.log(this.currentIndex);
             this.currentIndex = (this.currentIndex + 1) % this.announcements.length;
+            console.log('next');
+            console.log(this.currentIndex);
         }, 3000);
         window.addEventListener("resize", this.updateMaxVisible);
     },
     computed: {
         visibleAnnouncements() {
+            console.log(this.announcements.slice(this.currentIndex, this.currentIndex + this.maxVisible));
             return this.announcements.slice(this.currentIndex, this.currentIndex + this.maxVisible);
         },
         maxVisible() {
@@ -69,12 +72,6 @@ export default {
         }
     },
     methods: {
-        updateIndex() {
-            requestAnimationFrame(() => {
-                this.currentIndex = (this.currentIndex + 1) % this.announcements.length;
-                this.updateIndex();
-            });
-        },
         updateMaxVisible() {
             this.$forceUpdate();
         }
