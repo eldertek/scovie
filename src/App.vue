@@ -1,28 +1,30 @@
 <template>
-  <div v-if="screenMode === 'announcements-planning'">
-    <HeaderComponent></HeaderComponent>
-    <AnnouncementsComponent></AnnouncementsComponent>
-    <PlanningComponent></PlanningComponent>
-    <FooterComponent></FooterComponent>
-  </div>
-  <div v-if="screenMode === 'caroussel'">
-    <CarousselComponent></CarousselComponent>
-  </div>
-  <div v-if="screenMode === 'all'">
-    <div class="row bg-black">
-      <div class="col pe-0">
-        <HeaderComponent></HeaderComponent>
-        <AnnouncementsComponent></AnnouncementsComponent>
-        <PlanningComponent></PlanningComponent>
-      </div>
-      <div class="col">
-        <CarousselComponent></CarousselComponent>
-      </div>
+  <div class="bg-black">
+    <div v-if="screenMode === 'announcements-planning'">
+      <HeaderComponent></HeaderComponent>
+      <AnnouncementsComponent></AnnouncementsComponent>
+      <PlanningComponent></PlanningComponent>
       <FooterComponent></FooterComponent>
     </div>
-  </div>
-  <div v-if="screenMode === 'valentine'">
-    <ValentineDayComponent></ValentineDayComponent>
+    <div v-if="screenMode === 'caroussel'">
+      <CarousselComponent></CarousselComponent>
+    </div>
+    <div v-if="screenMode === 'all'">
+      <div class="row">
+        <div class="col pe-0">
+          <HeaderComponent></HeaderComponent>
+          <AnnouncementsComponent></AnnouncementsComponent>
+          <PlanningComponent></PlanningComponent>
+        </div>
+        <div class="col">
+          <CarousselComponent></CarousselComponent>
+        </div>
+        <FooterComponent></FooterComponent>
+      </div>
+    </div>
+    <div v-if="screenMode === 'valentine'">
+      <ValentineDayComponent></ValentineDayComponent>
+    </div>
   </div>
 </template>
 <script>
@@ -67,12 +69,12 @@ export default {
         'announcements-planning',
         'caroussel',
       ];
-  
+
       // Add all screen mode only to desktop
       if (window.innerWidth > 767) {
         screenModes.push('all');
       }
-      
+
       // Add valentine day to screen modes
       if (today.getMonth() === 0 && today.getDate() === 29 && !screenModes.includes('valentine')) {
         // Add valentine day to the list of screen modes
