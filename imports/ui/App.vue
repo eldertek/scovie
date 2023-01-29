@@ -59,6 +59,8 @@ export default {
   created() {
     // Remove cursor
     document.body.style.cursor = 'none';
+    // Add bg-black class to body
+    document.body.classList.add('bg-black');
 
     // Change screen mode every 15 seconds
     setInterval(() => {
