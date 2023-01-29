@@ -1,0 +1,28 @@
+/* Default font-size for desktop */
+body {
+    overflow: hidden;
+}
+
+.afont-size {
+    font-size: 3vh;
+}
+
+.vfont-size {
+    font-size: 2vh;
+}
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+    body {
+        overflow: visible;
+    }
+
+    .afont-size {
+        font-size: 2vh;
+    }
+
+    .vfont-size {
+        font-size: 1vh;
+    }
+    
+}
