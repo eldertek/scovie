@@ -28,12 +28,23 @@ export default {
     name: "AnnouncementsComponent",
     data() {
         return {
-            announcements: [],
+            announcements: [{
+                id: 0, type: "ABSENCE", text: "Le professeur de mathématiques est absent",
+                id: 1, type: "ABSENCE", text: "Le professeur de français est absent",
+                id: 2, type: "ABSENCE", text: "Le professeur de mathématiques est absent",
+                id: 3, type: "ABSENCE", text: "Le professeur de physique est absent",
+                id: 4, type: "ABSENCE", text: "Le professeur de emc est absent",
+                id: 5, type: "ABSENCE", text: "Le professeur de philosophie est absent",
+                id: 6, type: "ABSENCE", text: "Le professeur de histoire est absent",
+                id: 7, type: "ABSENCE", text: "Le professeur de géographie est absent",
+                id: 8, type: "ABSENCE", text: "Le professeur de humanité est absent",
+                id: 9, type: "ABSENCE", text: "Le professeur de eps est absent",
+
+            }],
             currentIndex: 0
         }
     },
     mounted() {
-        this.fetchAnnouncements();
         setInterval(() => {
             this.currentIndex = (this.currentIndex + 1) % this.announcements.length;
         }, 3000);
@@ -58,11 +69,6 @@ export default {
         }
     },
     methods: {
-        fetchAnnouncements() {
-            axios.get("/api/announcements").then(response => {
-                this.announcements = response.data;
-            });
-        },
         updateIndex() {
             requestAnimationFrame(() => {
                 this.currentIndex = (this.currentIndex + 1) % this.announcements.length;
