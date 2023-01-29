@@ -29,14 +29,14 @@
 </template>
 <script>
 // Components
-import HeaderComponent from './screen/HeaderComponent.vue'
-import AnnouncementsComponent from './screen/AnnouncementsComponent.vue'
-import PlanningComponent from './screen/PlanningComponent.vue'
-import CarousselComponent from './screen/CarousselComponent.vue'
-import FooterComponent from './screen/FooterComponent.vue'
+import HeaderComponent from './screen/header.vue'
+import AnnouncementsComponent from './screen/announcement.vue'
+import PlanningComponent from './screen/planning.vue'
+import CarousselComponent from './screen/caroussel.vue'
+import FooterComponent from './screen/footer.vue'
 
 // Events
-import ValentineDayComponent from './events/ValentineDay.vue'
+import ValentineDayComponent from './events/valentine.vue'
 
 export default {
   name: 'App',
