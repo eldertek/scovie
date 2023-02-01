@@ -1,0 +1,38 @@
+/* Common styles for all pages */
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+/* Default font-size for desktop */
+body {
+    overflow: hidden;
+}
+
+.afont-size {
+    font-size: 3vh;
+}
+
+.vfont-size {
+    font-size: 2vh;
+}
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+    body {
+        overflow: visible;
+    }
+
+    .afont-size {
+        font-size: 2vh;
+    }
+
+    .vfont-size {
+        font-size: 1vh;
+    }
+
+}

@@ -1,0 +1,33 @@
+<nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
+    <div class="container-fluid justify-content-center">
+        <span class="navbar-brand text-light" style="font-size: 2vh;">
+            <strong>Organisation des salles de TP</strong>
+        </span>
+    </div>
+</nav>
+<table class="table table-bordered border-white table-dark table-striped" style="font-size: 2vh;">
+    <thead>
+        <tr>
+            <th></th>
+            {% for room in rooms %}
+            <th>{{ room.name }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for time in times %}
+        <tr>
+            <td>{{ time.name }}</td>
+            {% for room in rooms %}
+            <td>
+                {% for plan in planning %}
+                {% if plan.time == time and plan.room == room %}
+                {{ plan.teacher.name }}
+                {% endif %}
+                {% endfor %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,97 @@
+{% load static %}
+<html lang="fr-FR">
+
+<head>
+    <title>Scovie</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/heart.js' %}"></script>
+    <script>
+        let pages = ['screen/informations'];
+
+        if (window.innerWidth >= 2000) {
+            pages = pages.concat('screen/all');
+            pages = pages.concat('screen/caroussel');
+        }
+
+        {% if events %}
+        pages = pages.concat('{{ events|safe }}');
+        {% endif %}
+        let currentPage = 0;
+
+
+        function rotatePages() {
+            currentPage = (currentPage + 1) % pages.length;
+            fetch(pages[currentPage])
+                .then(response => response.text())
+                .then(html => {
+                    // Refresh content
+                    document.getElementById("content").innerHTML = html;
+                    // Refresh heart
+                    const heartElement = document.getElementById("heart");
+                    if (heartElement) {
+                        startHeartAnimation(heartElement);
+                    }
+                    // Refresh caroussel
+                    const carousselElement = document.getElementById("caroussel");
+                    if (carousselElement) {
+                        const carousel = new bootstrap.Carousel(carousselElement, {
+                            interval: 2500,
+                            pause: false,
+                            ride: "carousel",
+                            wrap: true
+                        });
+                    }
+                    // Refresh time
+                    const timeElement = document.getElementById("time")
+                    if (timeElement) {
+                        refreshTime(timeElement);
+                        setInterval(function () {
+                            refreshTime(timeElement)
+                        }, 1000);
+                    }
+                    // Choose the right footer
+                    const isDesktop = window.innerWidth > 800;
+                    const footer = document.getElementById("footer");
+
+                    if (footer) {
+                        if (isDesktop) {
+                            footer.classList.add("fixed-bottom");
+                        } else {
+                            footer.classList.add("bottom");
+                        }
+                    }
+                });
+        }
+
+        function refreshTime(timeElement) {
+            let now = new Date();
+            let time = now.toLocaleString("fr-FR", {
+                timeZone: "Indian/Reunion",
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: false
+            });
+            time = time.charAt(0).toUpperCase() + time.slice(1);
+            timeElement.innerHTML = time;
+        }
+
+        window.onload = rotatePages;
+
+        setInterval(rotatePages, 15000);
+    </script>
+</head>
+
+<body class="bg-black">
+    <div id="content"></div>
+</body>
+
+</html>

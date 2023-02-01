@@ -1,0 +1,23 @@
+<nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
+    <div class="container-fluid justify-content-center">
+        <span class="navbar-brand text-light" style="font-size: 2vh;">
+            <strong>Annonces du jour | Professeurs absents</strong>
+        </span>
+    </div>
+</nav>
+<table class="table table-bordered border-white table-dark table-striped sfont-size">
+    <thead>
+        <tr>
+            <th width="14%">Type</th>
+            <th width="86%">Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for announcement in announcements %}
+        <tr>
+            <td>{{ announcement.type }}</td>
+            <td>{{ announcement.text }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
