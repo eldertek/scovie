@@ -26,8 +26,10 @@
         {% include 'pages/caroussel.html' %}
     {% elif screen_mode == 'informations' %}
         {% include 'pages/informations.html' %}
-        {% elif screen_mode == 'valentine' %}
-            {% include 'events/valentine.html' %}
+    {% elif screen_mode == 'emergency' %}
+            {% include 'pages/emergency.html' %}
+    {% elif screen_mode == 'valentine' %}
+        {% include 'events/valentine.html' %}
     {% endif %}
 </body>
 </html>
