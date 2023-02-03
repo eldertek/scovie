@@ -1,3 +1,4 @@
+{% load static %}
 <canvas id="heart"></canvas>
 <nav class="navbar fixed-bottom bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -6,3 +7,21 @@
         </span>
     </div>
 </nav>
+
+<audio id="valentineSong" autoplay loop>
+    <source src="/static/music/valentine.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audioElement = document.getElementById("valentineSong");
+    audioElement.volume = 0.2;
+    audioElement.play();
+
+    document.addEventListener("click", function() {
+      audioElement.play();
+    });
+  });
+</script>
+
+<script src="{% static 'js/heart.js' %}"></script>

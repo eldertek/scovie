@@ -7,3 +7,12 @@
         {% endfor %}
     </div>
 </div>
+<script>
+    var carousselElement = document.getElementById('caroussel');
+    const carousel = new bootstrap.Carousel(carousselElement, {
+        interval: 2500,
+        pause: false,
+        ride: "carousel",
+        wrap: true
+    });
+</script>
