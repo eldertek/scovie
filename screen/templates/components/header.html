@@ -6,3 +6,24 @@
         <span id="time" class="navbar-brand mb-0 text-end" style="font-size: 3vh;"></span>
     </div>
 </nav>
+<script>
+    const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+
+    function updateTime() {
+        let date = new Date();
+        let day = days[date.getDay()];
+        let month = months[date.getMonth()];
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+        hour = (hour < 10 ? "0" : "") + hour;
+        minute = (minute < 10 ? "0" : "") + minute;
+        second = (second < 10 ? "0" : "") + second;
+        let formattedTime = day + " " + date.getDate() + " " + month + " " + year + " à " + hour + ":" + minute + ":" + second;
+        document.getElementById("time").innerHTML = formattedTime;
+    }
+
+    setInterval(updateTime, 1000);
+</script>
