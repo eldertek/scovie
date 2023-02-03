@@ -13,3 +13,5 @@
 # FIXME order by absence, remplacement, information
 
 # TODO if urgence, add only screen if the message
+
+# FIXME agrandir taille selon écran

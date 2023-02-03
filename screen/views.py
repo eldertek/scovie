@@ -20,10 +20,13 @@ def index(request):
         screen_mode = request.GET['screen_mode']
 
     context = {
-        'announcements': Announcement.objects.all(),
+        'retards': Announcement.objects.filter(type='RETARD'),
+        'absences': Announcement.objects.filter(type='ABSENCE'),
+        'remplacements': Announcement.objects.filter(type='REMPLACEMENT'),
+        'informations': Announcement.objects.filter(type='INFORMATION'),
         'enterprise_name': Configuration.get_value('enterprise_name'),
-        'planning': Planning.objects.all(),
-        'rooms': Room.objects.all(),
+        'planning': Planning.objects.all(),        
+        'rooms': Room.objects.filter(planning__teacher__isnull=False),
         'times': Time.objects.all(),
         'medias': Media.objects.all(),
         'screen_modes': screen_modes,
