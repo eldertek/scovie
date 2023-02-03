@@ -2,22 +2,34 @@
 <html lang="fr-FR">
 
 <head>
-    <title>Scovie</title>
+    <title>Scovie - {{ enterprise_name }}</title>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script>
         var screenModes = {{ screen_modes|safe }};
         var currentScreenMode = screenModes.indexOf('{{ screen_mode }}');
-
-        setInterval(function(){
+      
+        setInterval(function() {
+          // Add the fade-out class to the body
+          document.body.classList.add('fade-out');
+      
+          // Wait for the animation to complete
+          setTimeout(function() {
             currentScreenMode = (currentScreenMode + 1) % screenModes.length;
             window.location.href = '?screen_mode=' + screenModes[currentScreenMode];
+          }, 1000);
         }, 15000);
-    </script>
-     
+      </script>
+      <style>
+        .fade-out {
+          opacity: 0;
+          transition: opacity 1s;
+        }
+      </style>      
 </head>
 <body class="bg-black">
     {% if screen_mode == 'all' %}

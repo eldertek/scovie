@@ -23,12 +23,12 @@ def index(request):
         # Update context with emergency context
         context.update(emergency_context)
     else:
-        # Default screen mode
-        screen_mode = 'all'
+        # Get screen mode from GET request, default to all
+        screen_mode = request.GET.get('screen_mode', 'all')
         # Available screen modes
         screen_modes = ['all', 'informations', 'caroussel']
         # Saint-Valentine day feature
-        if datetime.datetime.now().month == 2 and datetime.datetime.now().day == 3:
+        if datetime.datetime.now().month == 2 and datetime.datetime.now().day == 14:
             screen_modes.append('valentine')
 
     temp = {
