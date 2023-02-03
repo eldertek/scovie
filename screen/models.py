@@ -90,7 +90,7 @@ class Configuration(models.Model):
         verbose_name = "paramètre"
 
     name = models.CharField(max_length=30)
-    value = models.CharField(max_length=25)
+    value = models.TextField()
 
     @classmethod
     def get_value(cls, name):
