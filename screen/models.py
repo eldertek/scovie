@@ -21,10 +21,11 @@ class Announcement(models.Model):
         verbose_name = "annonce"
         ordering = ['type']
 
+
     TYPE_CHOICES = (
+        ('RETARD', 'Retard'),
         ('ABSENCE', 'Absence'),
         ('REMPLACEMENT', 'Remplacement'),
-        ('RETARD', 'Retard'),
         ('INFORMATION', 'Information'),
     )
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
