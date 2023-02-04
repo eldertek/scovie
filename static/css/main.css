@@ -8,15 +8,15 @@ canvas {
     background-color: rgba(0, 0, 0, .2);
 }
 
-/* Style for signage */
-@media (min-width: 3000px) {
+/* Style for desktop+signage */
+@media (min-width: 1000px) {
     body {
         overflow: hidden;
     }
 }
 
 /* Style for mobile */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     body {
         overflow: visible;
     }

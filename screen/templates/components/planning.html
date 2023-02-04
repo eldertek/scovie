@@ -1,7 +1,7 @@
 <nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid justify-content-center">
         <span class="navbar-brand text-light">
-            <h1 id="planning-title">Organisation des salles de TP</h1>
+            <span id="planning-title">Organisation des salles de TP</span>
         </span>
     </div>
 </nav>
@@ -33,10 +33,10 @@
 </table>
 <script>
     // Style depending on screen size
-    if (window.innerWidth >= 1000) {
+    if (window.innerWidth >= 3000) {
         document.getElementById("planning-title").classList.add("display-6");
         document.getElementById("planning-table").classList.add("display-6");
-    } else {
+    } else if (window.innerWidth <= 1000) {
         document.getElementById("planning-title").classList.add("display-3");
         document.getElementById("planning-table").classList.add("display-3");
     }

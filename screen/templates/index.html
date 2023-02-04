@@ -13,8 +13,6 @@
         var screenModes = {{ screen_modes|safe }};
         var mobileScreenModes = {{ mobile_screen_modes|safe }};
         var currentScreenMode = screenModes.indexOf('{{ screen_mode }}');
-      
-        console.log(window.innerWidth);
         // Check if the screen is mobile
         if (window.innerWidth <= 1000) {
           currentScreenMode = mobileScreenModes.indexOf('{{ screen_mode }}');

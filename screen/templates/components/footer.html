@@ -1,16 +1,20 @@
 <nav id="footer" class="navbar bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid">
-        <h1 id="footer-text" class="mb-0 text-start text-light">
+        <span class="mb-0 text-start text-light">
             Développé par André Théo LAURET
-        </h1>
+        </span>
     </div>
 </nav>
 <script>
     // Style depending on screen size
-    if (window.innerWidth >= 1000) {
-        document.getElementById("footer").classList.add("fixed-bottom");
-        document.getElementById("footer-text").classList.add("display-6");
-    } else {
+    if (window.innerWidth >= 3000) {
+        // Digital Signage
+        document.getElementById("footer").classList.add("fixed-bottom", "display-6");
+    } else if (window.innerWidth <= 1000) {
+        // Mobile
         document.getElementById("footer").classList.add("display-4");
+    } else {
+        // Desktop
+        document.getElementById("footer").classList.add("fixed-bottom");
     }
 </script>

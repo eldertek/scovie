@@ -1,21 +1,24 @@
 <nav class="navbar bg-warning">
     <div class="container-fluid">
-        <h1 id="enterprise-name" class="mb-0 text-start">
+        <span id="enterprise-name" class="mb-0 text-start">
             {{ enterprise_name }}
-        </h1>
-        <h1 id="time" class="mb-0"></h1>
+        </span>
+        <span id="time" class="mb-0"></span>
     </div>
 </nav>
 <script>
     // Style depending on screen size
-    if (window.innerWidth >= 1000) {
+    if (window.innerWidth >= 3000) {
+        // Digital Signage
         document.getElementById("enterprise-name").classList.add("display-6");
         document.getElementById("time").classList.add("display-6");
         document.getElementById("time").classList.add("text-end");
-    } else {
+    } else if (window.innerWidth <= 1000) {
+        // Mobile
         document.getElementById("enterprise-name").classList.add("display-1");
         document.getElementById("time").classList.add("display-3");
-    }
+    } 
+    
     const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
     const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
 
