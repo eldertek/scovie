@@ -5,6 +5,8 @@ import datetime
 import locale
 
 def index(request):
+    # Default screen mode for mobile
+    mobile_screen_modes = ['informations']
     # Create a context
     context = {}
     # Get emergency status from configuration
@@ -41,8 +43,9 @@ def index(request):
         'rooms': Room.objects.filter(planning__teacher__isnull=False),
         'times': Time.objects.all(),
         'medias': Media.objects.all(),
+        'mobile_screen_modes': mobile_screen_modes,
         'screen_modes': screen_modes,
-        'screen_mode': screen_mode
+        'screen_mode': screen_mode,
     }
 
     context.update(temp)

@@ -6,23 +6,34 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
     <script>
         var screenModes = {{ screen_modes|safe }};
+        var mobileScreenModes = {{ mobile_screen_modes|safe }};
         var currentScreenMode = screenModes.indexOf('{{ screen_mode }}');
       
-        setInterval(function() {
-          // Add the fade-out class to the body
-          document.body.classList.add('fade-out');
-      
-          // Wait for the animation to complete
-          setTimeout(function() {
-            currentScreenMode = (currentScreenMode + 1) % screenModes.length;
-            window.location.href = '?screen_mode=' + screenModes[currentScreenMode];
-          }, 1000);
-        }, 15000);
+        console.log(window.innerWidth);
+        // Check if the screen is mobile
+        if (window.innerWidth <= 1000) {
+          currentScreenMode = mobileScreenModes.indexOf('{{ screen_mode }}');
+          // If get the screen mode from the URL is not a mobile screen mode, redirect to the first mobile screen mode
+          if (currentScreenMode == -1) {
+            window.location.href = '?screen_mode=' + mobileScreenModes[0];
+          }
+        } else {
+          setInterval(function() {
+            // Add the fade-out class to the body
+            document.body.classList.add('fade-out');
+        
+            // Wait for the animation to complete
+            setTimeout(function() {
+              currentScreenMode = (currentScreenMode + 1) % screenModes.length;
+              window.location.href = '?screen_mode=' + screenModes[currentScreenMode];
+            }, 1000);
+          }, 15000);
+        }
       </script>
       <style>
         .fade-out {

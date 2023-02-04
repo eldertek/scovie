@@ -1,12 +1,21 @@
 <nav class="navbar bg-warning">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 text-start" style="font-size: 3vh;">
+        <h1 id="enterprise-name" class="mb-0 text-start">
             {{ enterprise_name }}
-        </span>
-        <span id="time" class="navbar-brand mb-0 text-end" style="font-size: 3vh;"></span>
+        </h1>
+        <h1 id="time" class="mb-0"></h1>
     </div>
 </nav>
 <script>
+    // Style depending on screen size
+    if (window.innerWidth >= 1000) {
+        document.getElementById("enterprise-name").classList.add("display-6");
+        document.getElementById("time").classList.add("display-6");
+        document.getElementById("time").classList.add("text-end");
+    } else {
+        document.getElementById("enterprise-name").classList.add("display-1");
+        document.getElementById("time").classList.add("display-3");
+    }
     const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
     const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
 

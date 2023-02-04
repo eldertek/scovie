@@ -8,31 +8,16 @@ canvas {
     background-color: rgba(0, 0, 0, .2);
 }
 
-/* Default font-size for desktop */
-body {
-    overflow: hidden;
+/* Style for signage */
+@media (min-width: 3000px) {
+    body {
+        overflow: hidden;
+    }
 }
 
-.afont-size {
-    font-size: 3vh;
-}
-
-.vfont-size {
-    font-size: 2vh;
-}
-
-/* Media query for mobile */
+/* Style for mobile */
 @media (max-width: 768px) {
     body {
         overflow: visible;
     }
-
-    .afont-size {
-        font-size: 2vh;
-    }
-
-    .vfont-size {
-        font-size: 1vh;
-    }
-
 }

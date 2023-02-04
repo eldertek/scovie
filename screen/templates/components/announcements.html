@@ -1,11 +1,11 @@
 <nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid justify-content-center">
-        <span class="navbar-brand text-light" style="font-size: 2vh;">
-            <strong>Annonces du jour | Professeurs absents</strong>
+        <span class="navbar-brand text-light">
+            <h1 id="announcements-title">Annonces du jour | Professeurs absents</h1>
         </span>
     </div>
 </nav>
-<table class="table table-bordered border-white table-dark table-striped sfont-size">
+<table id="announcements-table" class="table table-bordered border-white table-dark table-striped">
     <thead>
         <tr>
             <th width="14%">Type</th>
@@ -39,3 +39,13 @@
         {% endfor %}
     </tbody>
 </table>
+<script>
+    // Style depending on screen size
+    if (window.innerWidth >= 1000) {
+        document.getElementById("announcements-title").classList.add("display-6");
+        document.getElementById("announcements-table").classList.add("display-6");
+    } else {
+        document.getElementById("announcements-title").classList.add("display-3");
+        document.getElementById("announcements-table").classList.add("display-3");
+    }
+</script>
