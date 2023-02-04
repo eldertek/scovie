@@ -1,7 +1,7 @@
 <nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid justify-content-center">
         <span class="navbar-brand text-light">
-            <h1 id="announcements-title">Annonces du jour | Professeurs absents</h1>
+            <span id="announcements-title">Annonces du jour | Professeurs absents</span>
         </span>
     </div>
 </nav>
@@ -12,40 +12,45 @@
             <th width="86%">Message</th>
         </tr>
     </thead>
-    <tbody>
-        {% for retard in retards %}
-        <tr>
-            <td>{{ retard.type }}</td>
-            <td>{{ retard.text }}</td>
+    <tbody id="announcements-body">
+        {% for announcement in announcements %}
+        <tr id="announcements-row">
+            <td>{{ announcement.type }}</td>
+            <td>{{ announcement.text }}</td>
         </tr>
         {% endfor %}
-        {% for absence in absences %}
-        <tr>
-            <td>{{ absence.type }}</td>
-            <td>{{ absence.text }}</td>
-        </tr>
-        {% endfor %}
-        {% for remplacement in remplacements %}
-        <tr>
-            <td>{{ remplacement.type }}</td>
-            <td>{{ remplacement.text }}</td>
-        </tr>
-        {% endfor %}
-        {% for information in informations %}
-        <tr>
-            <td>{{ information.type }}</td>
-            <td>{{ information.text }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
+    </tbody>    
 </table>
 <script>
+    const announcements = document.querySelectorAll("#announcements-row");
+    let currentIndex = 0;
     // Style depending on screen size
-    if (window.innerWidth >= 1000) {
+    if (window.innerWidth >= 3000) {
+        // Digital Signage
         document.getElementById("announcements-title").classList.add("display-6");
         document.getElementById("announcements-table").classList.add("display-6");
-    } else {
+        rotateAnnouncements(5);
+        setInterval(() => rotateAnnouncements(5), 3750);
+    } else if (window.innerWidth <= 1000) {
+        // Mobile
         document.getElementById("announcements-title").classList.add("display-3");
         document.getElementById("announcements-table").classList.add("display-3");
+    } else {
+        // Desktop
+        rotateAnnouncements(2);
+        setInterval(() => rotateAnnouncements(2), 3750);
     }
+
+    function rotateAnnouncements(numberPerRotation) {
+        for (let i = 0; i < announcements.length; i++) {
+            announcements[i].style.display = "none";
+        }
+        
+            for (let i = currentIndex; i < currentIndex + numberPerRotation; i++) {
+            announcements[i % announcements.length].style.display = "table-row";
+        }
+
+        currentIndex = (currentIndex + numberPerRotation) % announcements.length;
+    }
+
 </script>

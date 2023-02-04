@@ -34,13 +34,10 @@ def index(request):
             screen_modes.append('valentine')
 
     temp = {
-        'retards': Announcement.objects.filter(type='RETARD'),
-        'absences': Announcement.objects.filter(type='ABSENCE'),
-        'remplacements': Announcement.objects.filter(type='REMPLACEMENT'),
-        'informations': Announcement.objects.filter(type='INFORMATION'),
         'enterprise_name': Configuration.get_value('enterprise_name'),
         'planning': Planning.objects.all(),
         'rooms': Room.objects.filter(planning__teacher__isnull=False),
+        'announcements': Announcement.objects.all(),
         'times': Time.objects.all(),
         'medias': Media.objects.all(),
         'mobile_screen_modes': mobile_screen_modes,
