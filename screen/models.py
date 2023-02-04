@@ -1,9 +1,7 @@
-import base64
 import datetime
 import os
 import re
 
-from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -21,15 +19,8 @@ class Announcement(models.Model):
         verbose_name = "annonce"
         ordering = ['type']
 
-
-    TYPE_CHOICES = (
-        ('RETARD', 'Retard'),
-        ('ABSENCE', 'Absence'),
-        ('REMPLACEMENT', 'Remplacement'),
-        ('INFORMATION', 'Information'),
-    )
-    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
-    text = models.TextField()
+    type = models.CharField(max_length=20, unique=True)
+    message = models.TextField()
 
     def __str__(self):
         return self.type + " : " + self.text
@@ -50,7 +41,7 @@ class Room(models.Model):
         return self.name
 
 
-class Teacher(models.Model):    
+class Teacher(models.Model):
     class Meta:
         verbose_name = "enseignant"
         ordering = ['name']
@@ -90,7 +81,7 @@ class Configuration(models.Model):
         verbose_name = "paramètre"
 
     name = models.CharField(max_length=30)
-    value = models.TextField()
+    value = models.CharField(max_length=90)
 
     @classmethod
     def get_value(cls, name):
@@ -109,7 +100,7 @@ class Media(models.Model):
 
     name = models.CharField(max_length=30)
     image = models.ImageField(upload_to=format_filename)
-    
+
     def delete(self, *args, **kwargs):
         self.image.delete()
         super().delete(*args, **kwargs)

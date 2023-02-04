@@ -1,14 +1,28 @@
 {% include 'components/header.html' %}
-<div id="emergency" style="color: white; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: sans-serif; font-weight: bold; text-shadow: 0 0 10px white;">
-    <h1>{{ emergency_title }}</h1>
-    <h1>{{ emergency_subtitle }}</h2>
+<div id="emergency" class="d-flex align-items-center" style="height: 80vh; width: 100%;">
+    <div class="container text-center text-white">
+      <h1 id="emergency-title">{{ emergency_title }}</h1>
+      <h3 id="emergency-subtitle">{{ emergency_subtitle }}</h3>
+    </div>
 </div>
-
 <audio id="emergencyAlarm" autoplay loop>
     <source src="/static/music/emergency.mp3" type="audio/mpeg">
 </audio>
-
 <script>
+    // Style depending on screen size
+    if (window.innerWidth >= 3000) {
+        // Digital Signage
+        document.getElementById("emergency-title").classList.add("display-1");
+        document.getElementById("emergency-subtitle").classList.add("display-2");
+    } else if (window.innerWidth <= 1000) {
+        // Mobile
+        document.getElementById("emergency-title").classList.add("display-1");
+        document.getElementById("emergency-subtitle").classList.add("display-2");
+    } else {
+        // Desktop
+        document.getElementById("emergency-title").classList.add("display-1");
+        document.getElementById("emergency-subtitle").classList.add("display-2");
+    }
     // Play alarm
     document.addEventListener('DOMContentLoaded', function() {
         var audioElement = document.getElementById("emergencyAlarm");
@@ -19,11 +33,4 @@
             audioElement.play();
         });
     });
-   // Flicker effect
-    var title = document.getElementById('emergency');
-    var flicker = function () {
-        title.style.opacity = Math.random();
-        setTimeout(flicker, 100);
-    };
-    flicker();
 </script>

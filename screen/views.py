@@ -5,8 +5,6 @@ import datetime
 import locale
 
 def index(request):
-    # Default screen mode for mobile
-    mobile_screen_modes = ['informations']
     # Create a context
     context = {}
     # Get emergency status from configuration
@@ -17,6 +15,7 @@ def index(request):
         screen_mode = 'emergency'
         # Clean screen modes with only emergency
         screen_modes = ['emergency']
+        mobile_screen_modes = ['emergency']
         # Emergency context
         emergency_context = {
             'emergency_title': Configuration.get_value('emergency_title'),
@@ -29,6 +28,7 @@ def index(request):
         screen_mode = request.GET.get('screen_mode', 'all')
         # Available screen modes
         screen_modes = ['all', 'informations', 'caroussel']
+        mobile_screen_modes = ['informations']
         # Saint-Valentine day feature
         if datetime.datetime.now().month == 2 and datetime.datetime.now().day == 14:
             screen_modes.append('valentine')
