@@ -40,6 +40,10 @@ class Command(BaseCommand):
         # Migrate
         self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
         os.system('python manage.py migrate')
+        # Print a message to the user
+        self.stdout.write(self.style.MIGRATE_HEADING(_('Running collectstatic...')))
+        # Collect static files
+        os.system('python3 manage.py collectstatic')
         # Create default announcement types (absences, remplacements, retards, informations)
         self.stdout.write(self.style.MIGRATE_HEADING(_('Creating default announcement types...')))
         Announcement.objects.create(type=_("Absences"), message=_("No absences"))

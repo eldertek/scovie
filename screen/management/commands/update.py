@@ -43,6 +43,10 @@ class Command(BaseCommand):
             # Migrate
             os.system('python3 manage.py migrate')
             # Print a message to the user
+            self.stdout.write(self.style.MIGRATE_HEADING(_('Running collectstatic...')))
+            # Collect static files
+            os.system('python3 manage.py collectstatic')
+            # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Scovie updated !')))
         else: 
             # Print a message to the user
