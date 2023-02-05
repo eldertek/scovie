@@ -10,10 +10,8 @@ class Command(BaseCommand):
     help = _('Runs an update of scovie, be cautious !')
 
     def handle(self, *args, **options):
-        # If system is not linux, raise an error
-        if os.name != 'posix' or os.name != 'linux':
-            raise CommandError('This command is only available on linux')
-        else: 
+        # If system is linux
+        if os.name == 'posix':
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Creating backup...')))
             # Save current directory in backup_dir
@@ -25,13 +23,15 @@ class Command(BaseCommand):
             # Pull the latest changes from the github repository
             os.system('git pull')
             # Print a message to the user
-            self.stdout.write(self.style.MIGRATE_HEADING(
-                _('Running makemigrations...')))
+            self.stdout.write(self.style.MIGRATE_HEADING(_('Running makemigrations...')))
             # Make migrations
-            os.system('python manage.py makemigrations')
+            os.system('python3 manage.py makemigrations')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
             # Migrate
-            os.system('python manage.py migrate')
+            os.system('python3 manage.py migrate')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Scovie updated !')))
+        else: 
+            # Print a message to the user
+            self.stdout.write(self.style.MIGRATE_HEADING(_('Scovie can only be updated on a linux system !')))
