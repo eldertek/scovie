@@ -1,4 +1,4 @@
-import os, re
+import os, re, secrets
 
 from django.core.management.base import BaseCommand, CommandError
 from django.utils.translation import gettext_lazy as _
@@ -22,6 +22,15 @@ class Command(BaseCommand):
         with open('scovie/settings.py', 'w') as file:
             file.write(content)
         from django.utils.translation import gettext_lazy as _
+        self.stdout.write(self.style.MIGRATE_HEADING(_('Generating secret key...')))
+        # Generate a new SECRET_KEY
+        SECRET_KEY = secrets.token_hex(24)
+        # Replace the old SECRET_KEY in the settings.py file
+        with open('scovie/settings.py', 'r') as file:
+            content = file.read()
+            content = re.sub(r'SECRET_KEY = \'.*\'', f"SECRET_KEY = '{SECRET_KEY}'", content)
+        with open('scovie/settings.py', 'w') as file:
+            file.write(content)
         # Clear database
         self.stdout.write(self.style.MIGRATE_HEADING(_('Cleaning up database...')))
         os.system('python manage.py flush --no-input')

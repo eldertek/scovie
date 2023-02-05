@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-05 12:09+0400\n"
+"POT-Creation-Date: 2023-02-05 21:52+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -34,7 +34,7 @@ msgstr "Administration de Scovie"
 msgid "Retards"
 msgstr "Retards"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:36
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:45
 msgid "Absences"
 msgstr "Absences"
 
@@ -42,7 +42,7 @@ msgstr "Absences"
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:39
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:48
 msgid "Informations"
 msgstr "Informations"
 
@@ -58,11 +58,11 @@ msgstr "Impossible de supprimer la configuration par défaut"
 msgid "Preview"
 msgstr "Aperçu"
 
-#: .\screen\admin.py:104
+#: .\screen\admin.py:106
 msgid "Delete all"
 msgstr "Supprimer tout"
 
-#: .\screen\admin.py:109
+#: .\screen\admin.py:111
 msgid "All items have been deleted."
 msgstr "Tous les éléments ont été supprimés."
 
@@ -72,7 +72,7 @@ msgid "teacher"
 msgstr "enseignant"
 
 #: .\screen\forms.py:10 .\screen\models.py:58 .\screen\models.py:61
-#: .\screen\models.py:73
+#: .\screen\models.py:73 .\screen\templates\admin\planning_change_list.html:36
 msgid "time"
 msgstr "heure"
 
@@ -93,73 +93,77 @@ msgstr ""
 "Exécute les premiers commandes d'installation, soyez vigilant ! Cela "
 "effacera toutes les données dans base de données !"
 
-#: .\screen\management\commands\firstinstall.py:26
+#: .\screen\management\commands\firstinstall.py:25
+msgid "Generating secret key..."
+msgstr "Génération de la clé secrète"
+
+#: .\screen\management\commands\firstinstall.py:35
 msgid "Cleaning up database..."
 msgstr "Nettoyage de la base de données..."
 
-#: .\screen\management\commands\firstinstall.py:29
+#: .\screen\management\commands\firstinstall.py:38
 msgid "Running makemigrations..."
 msgstr "Exécution de makemigrations..."
 
-#: .\screen\management\commands\firstinstall.py:32
+#: .\screen\management\commands\firstinstall.py:41
 msgid "Running migrate..."
 msgstr "Exécution de migrate..."
 
-#: .\screen\management\commands\firstinstall.py:35
+#: .\screen\management\commands\firstinstall.py:44
 msgid "Creating default announcement types..."
 msgstr "Création des types d'annonces par défaut..."
 
-#: .\screen\management\commands\firstinstall.py:36
+#: .\screen\management\commands\firstinstall.py:45
 msgid "No absences"
 msgstr "Aucune absence"
 
-#: .\screen\management\commands\firstinstall.py:37
+#: .\screen\management\commands\firstinstall.py:46
 msgid "Replacements"
 msgstr "Remplacements"
 
-#: .\screen\management\commands\firstinstall.py:37
+#: .\screen\management\commands\firstinstall.py:46
 msgid "No replacements"
 msgstr "Aucun remplacement"
 
-#: .\screen\management\commands\firstinstall.py:38
+#: .\screen\management\commands\firstinstall.py:47
 msgid "Delays"
 msgstr "Retards"
 
-#: .\screen\management\commands\firstinstall.py:38
+#: .\screen\management\commands\firstinstall.py:47
 msgid "No delays"
 msgstr "Aucun retard"
 
-#: .\screen\management\commands\firstinstall.py:39
+#: .\screen\management\commands\firstinstall.py:48
 msgid "No informations"
 msgstr "Aucune information"
 
-#: .\screen\management\commands\firstinstall.py:41
+#: .\screen\management\commands\firstinstall.py:50
 msgid "What is the name of your enterprise ? "
 msgstr "Quel est le nom de votre entreprise ? "
 
-#: .\screen\management\commands\firstinstall.py:44
+#: .\screen\management\commands\firstinstall.py:53
 msgid "Emergency mode ON !"
 msgstr "Mode d'urgence activé !"
 
-#: .\screen\management\commands\firstinstall.py:45
+#: .\screen\management\commands\firstinstall.py:54
 msgid "Please follow security instructions"
 msgstr "Veuillez suivre les instructions de sécurité"
 
-#: .\screen\management\commands\firstinstall.py:56
-#: .\screen\management\commands\firstinstall.py:57
+#: .\screen\management\commands\firstinstall.py:65
+#: .\screen\management\commands\firstinstall.py:66
 msgid "Room 1"
 msgstr "Salle 1"
 
-#: .\screen\management\commands\firstinstall.py:58
-#: .\screen\management\commands\firstinstall.py:59
+#: .\screen\management\commands\firstinstall.py:67
+#: .\screen\management\commands\firstinstall.py:68
 msgid "Teacher 1"
 msgstr "Enseignant 1"
 
-#: .\screen\management\commands\firstinstall.py:62
+#: .\screen\management\commands\firstinstall.py:71
 msgid "Image 1"
 msgstr "Image 1"
 
-#: .\screen\management\commands\firstinstall.py:64
+#: .\screen\management\commands\firstinstall.py:73
 msgid "Running createsuperuser..."
 msgstr "Exécution de createsuperuser..."
 
@@ -229,11 +233,11 @@ msgstr ""
 msgid "Announcements of the day | Absent teachers"
 msgstr "Annonces du jour | Enseignants absents"
 
-#: .\screen\templates\components\announcements.html:12
+#: .\screen\templates\components\announcements.html:13
 msgid "Type"
 msgstr "Type"
 
-#: .\screen\templates\components\announcements.html:13
+#: .\screen\templates\components\announcements.html:14
 msgid "Message"
 msgstr "Message"
 
