@@ -18,8 +18,18 @@ class Command(BaseCommand):
             backup_dir = os.getcwd()
             # Get parent directory
             destination_dir = os.path.dirname(backup_dir)
+            # If directory backup exists
+            if os.path.exists(f'{destination_dir}/backup'):
+                # Remove it
+                os.system(f'rm -r {destination_dir}/backup')
             # Copy all files in a backup directory
             os.system(f'cp -r {backup_dir} {destination_dir}/backup')
+            # Print a message to the user
+            self.stdout.write(self.style.MIGRATE_HEADING(_('Creating database backup...')))
+            # Dump database
+            os.system('python3 manage.py dumpdata > db.json')
+            # Move database backup to backup directory
+            os.system(f'mv db.json {destination_dir}/backup')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Updating scovie...')))
             # Pull the latest changes from the github repository
