@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-05 22:53+0400\n"
+"POT-Creation-Date: 2023-02-05 23:00+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -34,7 +34,7 @@ msgstr "Administration de Scovie"
 msgid "Retards"
 msgstr "Retards"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:45
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:49
 msgid "Absences"
 msgstr "Absences"
 
@@ -42,7 +42,7 @@ msgstr "Absences"
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:48
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:52
 msgid "Informations"
 msgstr "Informations"
 
@@ -102,70 +102,77 @@ msgid "Cleaning up database..."
 msgstr "Nettoyage de la base de données..."
 
 #: .\screen\management\commands\firstinstall.py:38
-#: .\screen\management\commands\update.py:34
+#: .\screen\management\commands\update.py:38
 msgid "Running makemigrations..."
 msgstr "Exécution de makemigrations..."
 
 #: .\screen\management\commands\firstinstall.py:41
-#: .\screen\management\commands\update.py:38
+#: .\screen\management\commands\update.py:42
 msgid "Running migrate..."
 msgstr "Exécution de migrate..."
 
 #: .\screen\management\commands\firstinstall.py:44
+#: .\screen\management\commands\update.py:46
+#, fuzzy
+#| msgid "Running migrate..."
+msgid "Running collectstatic..."
+msgstr "Exécution de migrate..."
+
+#: .\screen\management\commands\firstinstall.py:48
 msgid "Creating default announcement types..."
 msgstr "Création des types d'annonces par défaut..."
 
-#: .\screen\management\commands\firstinstall.py:45
+#: .\screen\management\commands\firstinstall.py:49
 msgid "No absences"
 msgstr "Aucune absence"
 
-#: .\screen\management\commands\firstinstall.py:46
+#: .\screen\management\commands\firstinstall.py:50
 msgid "Replacements"
 msgstr "Remplacements"
 
-#: .\screen\management\commands\firstinstall.py:46
+#: .\screen\management\commands\firstinstall.py:50
 msgid "No replacements"
 msgstr "Aucun remplacement"
 
-#: .\screen\management\commands\firstinstall.py:47
+#: .\screen\management\commands\firstinstall.py:51
 msgid "Delays"
 msgstr "Retards"
 
-#: .\screen\management\commands\firstinstall.py:47
+#: .\screen\management\commands\firstinstall.py:51
 msgid "No delays"
 msgstr "Aucun retard"
 
-#: .\screen\management\commands\firstinstall.py:48
+#: .\screen\management\commands\firstinstall.py:52
 msgid "No informations"
 msgstr "Aucune information"
 
-#: .\screen\management\commands\firstinstall.py:50
+#: .\screen\management\commands\firstinstall.py:54
 msgid "What is the name of your enterprise ? "
 msgstr "Quel est le nom de votre entreprise ? "
 
-#: .\screen\management\commands\firstinstall.py:53
+#: .\screen\management\commands\firstinstall.py:57
 msgid "Emergency mode ON !"
 msgstr "Mode d'urgence activé !"
 
-#: .\screen\management\commands\firstinstall.py:54
+#: .\screen\management\commands\firstinstall.py:58
 msgid "Please follow security instructions"
 msgstr "Veuillez suivre les instructions de sécurité"
 
-#: .\screen\management\commands\firstinstall.py:65
-#: .\screen\management\commands\firstinstall.py:66
+#: .\screen\management\commands\firstinstall.py:69
+#: .\screen\management\commands\firstinstall.py:70
 msgid "Room 1"
 msgstr "Salle 1"
 
-#: .\screen\management\commands\firstinstall.py:67
-#: .\screen\management\commands\firstinstall.py:68
+#: .\screen\management\commands\firstinstall.py:71
+#: .\screen\management\commands\firstinstall.py:72
 msgid "Teacher 1"
 msgstr "Enseignant 1"
 
-#: .\screen\management\commands\firstinstall.py:71
+#: .\screen\management\commands\firstinstall.py:75
 msgid "Image 1"
 msgstr "Image 1"
 
-#: .\screen\management\commands\firstinstall.py:73
+#: .\screen\management\commands\firstinstall.py:77
 msgid "Running createsuperuser..."
 msgstr "Exécution de createsuperuser..."
 
@@ -183,15 +190,15 @@ msgstr "Création de la sauvegarde..."
 msgid "Creating database backup..."
 msgstr "Nettoyage de la base de données..."
 
-#: .\screen\management\commands\update.py:30
+#: .\screen\management\commands\update.py:34
 msgid "Updating scovie..."
 msgstr "Mise à jour de scovie"
 
-#: .\screen\management\commands\update.py:42
+#: .\screen\management\commands\update.py:50
 msgid "Scovie updated !"
 msgstr "Scovie mis à jour !"
 
-#: .\screen\management\commands\update.py:45
+#: .\screen\management\commands\update.py:53
 msgid "Scovie can only be updated on a linux system !"
 msgstr "Scovie peut uniquement être mis à jour sur les systèmes linux !"
 
