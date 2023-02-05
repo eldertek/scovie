@@ -3,6 +3,20 @@
 # This file is distributed under the same license as the scovie package.
 # André Théo LAURET <andrelauret@icloud.com>, 2023.
 #
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-05 12:09+0400\n"
+"PO-Revision-Date: 2023-02-05 09:15+0400\n"
+"Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\scovie\settings.py:17
 msgid "Scovie"
@@ -20,7 +34,7 @@ msgstr "Administration de Scovie"
 msgid "Retards"
 msgstr "Retards"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:25
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:36
 msgid "Absences"
 msgstr "Absences"
 
@@ -28,7 +42,7 @@ msgstr "Absences"
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:28
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:39
 msgid "Informations"
 msgstr "Informations"
 
@@ -44,7 +58,30 @@ msgstr "Impossible de supprimer la configuration par défaut"
 msgid "Preview"
 msgstr "Aperçu"
 
-#: .\screen\forms.py:12
+#: .\screen\admin.py:104
+msgid "Delete all"
+msgstr "Supprimer tout"
+
+#: .\screen\admin.py:109
+msgid "All items have been deleted."
+msgstr "Tous les éléments ont été supprimés."
+
+#: .\screen\forms.py:9 .\screen\models.py:47 .\screen\models.py:50
+#: .\screen\models.py:74
+msgid "teacher"
+msgstr "enseignant"
+
+#: .\screen\forms.py:10 .\screen\models.py:58 .\screen\models.py:61
+#: .\screen\models.py:73
+msgid "time"
+msgstr "heure"
+
+#: .\screen\forms.py:11 .\screen\models.py:32 .\screen\models.py:35
+#: .\screen\models.py:72
+msgid "room"
+msgstr "salle"
+
+#: .\screen\forms.py:26
 msgid "You have reached the maximum number of images"
 msgstr "Vous avez atteint le nombre maximum d'images"
 
@@ -52,74 +89,77 @@ msgstr "Vous avez atteint le nombre maximum d'images"
 msgid ""
 "Runs first install commands, be cautious ! This will delete all data in "
 "database !"
-msgstr "Exécute les premiers commandes d'installation, soyez vigilant ! Cela effacera toutes les données dans "
-"base de données !"
+msgstr ""
+"Exécute les premiers commandes d'installation, soyez vigilant ! Cela "
+"effacera toutes les données dans base de données !"
 
-#: .\screen\management\commands\firstinstall.py:15
+#: .\screen\management\commands\firstinstall.py:26
 msgid "Cleaning up database..."
 msgstr "Nettoyage de la base de données..."
 
-#: .\screen\management\commands\firstinstall.py:18
+#: .\screen\management\commands\firstinstall.py:29
 msgid "Running makemigrations..."
 msgstr "Exécution de makemigrations..."
 
-#: .\screen\management\commands\firstinstall.py:21
+#: .\screen\management\commands\firstinstall.py:32
 msgid "Running migrate..."
 msgstr "Exécution de migrate..."
 
-#: .\screen\management\commands\firstinstall.py:24
+#: .\screen\management\commands\firstinstall.py:35
 msgid "Creating default announcement types..."
 msgstr "Création des types d'annonces par défaut..."
 
-#: .\screen\management\commands\firstinstall.py:25
+#: .\screen\management\commands\firstinstall.py:36
 msgid "No absences"
-msgstr "Pas d'absences"
+msgstr "Aucune absence"
 
-#: .\screen\management\commands\firstinstall.py:26
+#: .\screen\management\commands\firstinstall.py:37
 msgid "Replacements"
 msgstr "Remplacements"
 
-#: .\screen\management\commands\firstinstall.py:26
+#: .\screen\management\commands\firstinstall.py:37
 msgid "No replacements"
 msgstr "Aucun remplacement"
 
-#: .\screen\management\commands\firstinstall.py:27
+#: .\screen\management\commands\firstinstall.py:38
 msgid "Delays"
 msgstr "Retards"
 
-#: .\screen\management\commands\firstinstall.py:27
+#: .\screen\management\commands\firstinstall.py:38
 msgid "No delays"
 msgstr "Aucun retard"
 
-#: .\screen\management\commands\firstinstall.py:28
+#: .\screen\management\commands\firstinstall.py:39
 msgid "No informations"
 msgstr "Aucune information"
 
-#: .\screen\management\commands\firstinstall.py:30
+#: .\screen\management\commands\firstinstall.py:41
 msgid "What is the name of your enterprise ? "
 msgstr "Quel est le nom de votre entreprise ? "
 
-#: .\screen\management\commands\firstinstall.py:33
+#: .\screen\management\commands\firstinstall.py:44
 msgid "Emergency mode ON !"
 msgstr "Mode d'urgence activé !"
 
-#: .\screen\management\commands\firstinstall.py:34
+#: .\screen\management\commands\firstinstall.py:45
 msgid "Please follow security instructions"
 msgstr "Veuillez suivre les instructions de sécurité"
 
-#: .\screen\management\commands\firstinstall.py:45
+#: .\screen\management\commands\firstinstall.py:56
+#: .\screen\management\commands\firstinstall.py:57
 msgid "Room 1"
 msgstr "Salle 1"
 
-#: .\screen\management\commands\firstinstall.py:46
+#: .\screen\management\commands\firstinstall.py:58
+#: .\screen\management\commands\firstinstall.py:59
 msgid "Teacher 1"
 msgstr "Enseignant 1"
 
-#: .\screen\management\commands\firstinstall.py:49
+#: .\screen\management\commands\firstinstall.py:62
 msgid "Image 1"
 msgstr "Image 1"
 
-#: .\screen\management\commands\firstinstall.py:51
+#: .\screen\management\commands\firstinstall.py:64
 msgid "Running createsuperuser..."
 msgstr "Exécution de createsuperuser..."
 
@@ -127,37 +167,63 @@ msgstr "Exécution de createsuperuser..."
 msgid "announcement"
 msgstr "annonce"
 
-#: .\screen\models.py:32
-msgid "room"
-msgstr "salle"
+#: .\screen\models.py:23
+msgid "type"
+msgstr "type"
 
-#: .\screen\models.py:47
-msgid "teacher"
-msgstr "enseignant"
+#: .\screen\models.py:24
+#, fuzzy
+#| msgid "Message"
+msgid "message"
+msgstr "message"
 
-#: .\screen\models.py:58
-msgid "time"
-msgstr "heure"
+#: .\screen\models.py:62
+msgid "display order"
+msgstr "ordre d'affichage"
 
 #: .\screen\models.py:70
 msgid "planning"
 msgstr "planning"
 
 #: .\screen\models.py:77
-msgid "Planning pour "
-msgstr "Planning pour "
+msgid "Planning for {} in {} with {}"
+msgstr "Planning pour {} en {} avec {}"
 
-#: .\screen\models.py:82
+#: .\screen\models.py:82 .\screen\models.py:84
 msgid "parameter"
 msgstr "paramètre"
+
+#: .\screen\models.py:85
+msgid "value"
+msgstr "valeur"
 
 #: .\screen\models.py:100
 msgid "media"
 msgstr "média"
 
+#: .\screen\models.py:102
+msgid "name"
+msgstr "nom"
+
+#: .\screen\models.py:103
+#, fuzzy
+#| msgid "Image 1"
+msgid "image"
+msgstr "Image 1"
+
 #: .\screen\models.py:110
-msgid "Image: "
+#, fuzzy
+#| msgid "Image: "
+msgid "Image: {}"
 msgstr "Image : "
+
+#: .\screen\templates\admin\planning_change_list.html:15
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\screen\templates\admin\planning_change_list.html:15
+msgid "Please correct the errors below."
+msgstr ""
 
 #: .\screen\templates\components\announcements.html:5
 msgid "Announcements of the day | Absent teachers"
@@ -179,8 +245,8 @@ msgstr "Développé par André Théo LAURET"
 msgid ""
 "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', "
 "'Saturday']"
-msgstr "['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', "
-"'Samedi']"
+msgstr ""
+"['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']"
 
 #: .\screen\templates\components\header.html:24
 msgid ""
@@ -197,3 +263,24 @@ msgstr "Organisation des salles de classe"
 #: .\screen\templates\events\valentine.html:6
 msgid "wishes you a happy Valentine's Day!"
 msgstr "vous souhaite une joyeuse Saint-Valentin !"
+
+#, fuzzy
+#~| msgid "teacher"
+#~ msgid "No teacher"
+#~ msgstr "Aucun enseignant"
+
+#, fuzzy
+#~| msgid "Teacher 1"
+#~ msgid "Teacher"
+#~ msgstr "Enseignant 1"
+
+#~ msgid "Time"
+#~ msgstr "Heure"
+
+#, fuzzy
+#~| msgid "Room 1"
+#~ msgid "Room"
+#~ msgstr "Salle 1"
+
+#~ msgid "Planning pour "
+#~ msgstr "Planning pour "

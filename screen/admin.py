@@ -1,5 +1,5 @@
-from django.contrib import admin
-from django.urls import path
+from django.contrib import admin, messages
+from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
@@ -93,5 +93,36 @@ class MediaAdmin(admin.ModelAdmin):
 
 admin.site.register(Media, MediaAdmin)
 
-# Register the admin interface for the models
-admin.site.register(Planning)
+
+# Admin interface for the planning
+class PlanningAdmin(admin.ModelAdmin):
+    list_display = ('room', 'time', 'teacher')
+    change_list_template = 'admin/planning_change_list.html'
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        actions['delete_all'] = (self.delete_all, 'delete_all', (_("Delete all")))
+        return actions
+
+    def delete_all(self, request, queryset):
+        queryset.delete()
+        messages.success(request, (_("All items have been deleted.")))
+        return redirect("admin:screen_planning_changelist")
+
+    def changelist_view(self, request, extra_context=None):
+        if request.POST.get('action') == 'delete_all':
+            queryset = self.model.objects.all()
+            return self.delete_all(request, queryset)
+        extra_context = extra_context or {}
+        planning = self.model.objects.all()
+        times = Time.objects.all()
+        rooms = Room.objects.all()
+        extra_context['rooms'] = rooms
+        extra_context['times'] = times
+        extra_context['planning'] = planning
+        return super().changelist_view(request, extra_context=extra_context)
+
+
+admin.site.register(Planning, PlanningAdmin)

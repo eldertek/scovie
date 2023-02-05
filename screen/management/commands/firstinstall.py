@@ -1,7 +1,7 @@
-import os
+import os, re
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from screen.models import (Announcement, Configuration, Media, Planning, Room,
                            Teacher, Time)
@@ -11,6 +11,17 @@ class Command(BaseCommand):
     help = _('Runs first install commands, be cautious ! This will delete all data in database !')
 
     def handle(self, *args, **options):
+        # Ask for language
+        language_code = input(self.style.NOTICE('What language do you prefer? (fr/en) ? '))
+        if language_code not in ['fr', 'en']:
+            raise CommandError('Invalid language code. Please enter either "fr" or "en".')
+        # Modify LANGUAGE_CODE in settings.py file
+        with open('scovie/settings.py', 'r') as file:
+            content = file.read()
+            content = re.sub(r'LANGUAGE_CODE = \'.*\'', f"LANGUAGE_CODE = '{language_code}'", content)
+        with open('scovie/settings.py', 'w') as file:
+            file.write(content)
+        from django.utils.translation import gettext_lazy as _
         # Clear database
         self.stdout.write(self.style.MIGRATE_HEADING(_('Cleaning up database...')))
         os.system('python manage.py flush --no-input')
@@ -42,8 +53,10 @@ class Command(BaseCommand):
         Time.objects.create(name="S3", rank=7)
         Time.objects.create(name="S4", rank=8)
         # Create planning defaults, teacher, room
-        room, _ = Room.objects.get_or_create(defaults={'name': _("Room 1")})
-        teacher, _ = Teacher.objects.get_or_create(defaults={'name': _("Teacher 1")})
+        Room.objects.create(name=_("Room 1"))
+        room = Room.objects.get(name=_("Room 1"))
+        Teacher.objects.create(name=_("Teacher 1"))
+        teacher = Teacher.objects.get(name=_("Teacher 1"))
         Planning.objects.create(room=room, time=Time.objects.get(name="M1"), teacher=teacher)
         # Create media defaults
         Media.objects.create(name=_("Image 1"), image="static/uploads/image1.jpg")
