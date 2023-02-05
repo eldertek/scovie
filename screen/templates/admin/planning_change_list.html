@@ -32,11 +32,11 @@
             <table id="result_list">
               <thead>
                 <tr>
-                  <th scope="col" class="column">
+                  <th scope="col" class="column" style="border-right: 1px solid black;">
                     <div class="text"><a>{% translate 'time' %}</a></div>
                   </th>
                     {% for room in rooms %}
-                    <th scope="col" class="column">
+                    <th scope="col" class="column" style="border-right: 1px solid black; text-align: center;">
                       <div class="text"><a>{{ room.name }}</a></div>
                     </th>
                     {% endfor %}
@@ -45,9 +45,9 @@
               <tbody>
                 {% for time in times %}
                 <tr>
-                  <td class="field">{{ time.name }}</td>
+                  <td class="field" style="border-right: 1px solid black;">{{ time.name }}</td>
                   {% for room in rooms %}
-                        <td id="{{ room.name }}-{{ time.name }}" style="field"></td>
+                        <td id="{{ room.name }}-{{ time.name }}" style="border-right: 1px solid black; text-align: center;"></td>
                   {% endfor %}
                 </tr>
             {% endfor %}
