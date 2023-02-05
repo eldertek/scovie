@@ -12,10 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from django.contrib.admin.sites import AdminSite
+from django.utils.translation import gettext_lazy as _
 
-AdminSite.site_title = "Scovie"
-AdminSite.site_header = "Scovie - Logiciel de gestion d'informations diffusées"
-AdminSite.index_title = "Administration de Scovie"
+AdminSite.site_title = _("Scovie")
+AdminSite.site_header = _("Scovie - Information management software")
+AdminSite.index_title = _("Administration of Scovie")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'scovie.urls'
@@ -110,7 +112,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'fr'
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('fr', 'Français'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale'
+]
 
 TIME_ZONE = 'UTC'
 

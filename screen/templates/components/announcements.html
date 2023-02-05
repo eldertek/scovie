@@ -1,15 +1,16 @@
+{% load i18n %}
 <nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid justify-content-center">
         <span class="navbar-brand text-light">
-            <span id="announcements-title">Annonces du jour | Professeurs absents</span>
+            <span id="announcements-title">{% translate "Announcements of the day | Absent teachers" %}</span>
         </span>
     </div>
 </nav>
 <table id="announcements-table" class="table table-bordered border-white table-dark table-striped">
     <thead>
         <tr>
-            <th width="14%">Type</th>
-            <th width="86%">Message</th>
+            <th width="14%">{% translate "Type" %}</th>
+            <th width="86%">{% translate "Message" %}</th>
         </tr>
     </thead>
     <tbody id="announcements-body">

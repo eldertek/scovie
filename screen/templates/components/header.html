@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav class="navbar bg-info">
     <div class="container-fluid">
         <span id="enterprise-name" class="mb-0 text-start">
@@ -19,8 +20,8 @@
         document.getElementById("time").classList.add("display-3");
     } 
     
-    const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-    const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+    const days = {% translate "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']" %};
+    const months = {% translate "['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']" %};
 
     function updateTime() {
         let date = new Date();

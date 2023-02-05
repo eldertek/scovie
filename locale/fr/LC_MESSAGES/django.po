@@ -1,0 +1,199 @@
+# SCOVIE TRANSLATION FRENCH
+# Copyright (C) 2023 André Théo LAURET
+# This file is distributed under the same license as the scovie package.
+# André Théo LAURET <andrelauret@icloud.com>, 2023.
+#
+
+#: .\scovie\settings.py:17
+msgid "Scovie"
+msgstr "Scovie"
+
+#: .\scovie\settings.py:18
+msgid "Scovie - Information management software"
+msgstr "Scovie - Logiciel de gestion d'informations"
+
+#: .\scovie\settings.py:19
+msgid "Administration of Scovie"
+msgstr "Administration de Scovie"
+
+#: .\screen\admin.py:24
+msgid "Retards"
+msgstr "Retards"
+
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:25
+msgid "Absences"
+msgstr "Absences"
+
+#: .\screen\admin.py:24
+msgid "Remplacements"
+msgstr "Remplacements"
+
+#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:28
+msgid "Informations"
+msgstr "Informations"
+
+#: .\screen\admin.py:25
+msgid "Cannot delete default type"
+msgstr "Impossible de supprimer le type par défaut"
+
+#: .\screen\admin.py:76
+msgid "Cannot delete default configuration"
+msgstr "Impossible de supprimer la configuration par défaut"
+
+#: .\screen\admin.py:91
+msgid "Preview"
+msgstr "Aperçu"
+
+#: .\screen\forms.py:12
+msgid "You have reached the maximum number of images"
+msgstr "Vous avez atteint le nombre maximum d'images"
+
+#: .\screen\management\commands\firstinstall.py:11
+msgid ""
+"Runs first install commands, be cautious ! This will delete all data in "
+"database !"
+msgstr "Exécute les premiers commandes d'installation, soyez vigilant ! Cela effacera toutes les données dans "
+"base de données !"
+
+#: .\screen\management\commands\firstinstall.py:15
+msgid "Cleaning up database..."
+msgstr "Nettoyage de la base de données..."
+
+#: .\screen\management\commands\firstinstall.py:18
+msgid "Running makemigrations..."
+msgstr "Exécution de makemigrations..."
+
+#: .\screen\management\commands\firstinstall.py:21
+msgid "Running migrate..."
+msgstr "Exécution de migrate..."
+
+#: .\screen\management\commands\firstinstall.py:24
+msgid "Creating default announcement types..."
+msgstr "Création des types d'annonces par défaut..."
+
+#: .\screen\management\commands\firstinstall.py:25
+msgid "No absences"
+msgstr "Pas d'absences"
+
+#: .\screen\management\commands\firstinstall.py:26
+msgid "Replacements"
+msgstr "Remplacements"
+
+#: .\screen\management\commands\firstinstall.py:26
+msgid "No replacements"
+msgstr "Aucun remplacement"
+
+#: .\screen\management\commands\firstinstall.py:27
+msgid "Delays"
+msgstr "Retards"
+
+#: .\screen\management\commands\firstinstall.py:27
+msgid "No delays"
+msgstr "Aucun retard"
+
+#: .\screen\management\commands\firstinstall.py:28
+msgid "No informations"
+msgstr "Aucune information"
+
+#: .\screen\management\commands\firstinstall.py:30
+msgid "What is the name of your enterprise ? "
+msgstr "Quel est le nom de votre entreprise ? "
+
+#: .\screen\management\commands\firstinstall.py:33
+msgid "Emergency mode ON !"
+msgstr "Mode d'urgence activé !"
+
+#: .\screen\management\commands\firstinstall.py:34
+msgid "Please follow security instructions"
+msgstr "Veuillez suivre les instructions de sécurité"
+
+#: .\screen\management\commands\firstinstall.py:45
+msgid "Room 1"
+msgstr "Salle 1"
+
+#: .\screen\management\commands\firstinstall.py:46
+msgid "Teacher 1"
+msgstr "Enseignant 1"
+
+#: .\screen\management\commands\firstinstall.py:49
+msgid "Image 1"
+msgstr "Image 1"
+
+#: .\screen\management\commands\firstinstall.py:51
+msgid "Running createsuperuser..."
+msgstr "Exécution de createsuperuser..."
+
+#: .\screen\models.py:20
+msgid "announcement"
+msgstr "annonce"
+
+#: .\screen\models.py:32
+msgid "room"
+msgstr "salle"
+
+#: .\screen\models.py:47
+msgid "teacher"
+msgstr "enseignant"
+
+#: .\screen\models.py:58
+msgid "time"
+msgstr "heure"
+
+#: .\screen\models.py:70
+msgid "planning"
+msgstr "planning"
+
+#: .\screen\models.py:77
+msgid "Planning pour "
+msgstr "Planning pour "
+
+#: .\screen\models.py:82
+msgid "parameter"
+msgstr "paramètre"
+
+#: .\screen\models.py:100
+msgid "media"
+msgstr "média"
+
+#: .\screen\models.py:110
+msgid "Image: "
+msgstr "Image : "
+
+#: .\screen\templates\components\announcements.html:5
+msgid "Announcements of the day | Absent teachers"
+msgstr "Annonces du jour | Enseignants absents"
+
+#: .\screen\templates\components\announcements.html:12
+msgid "Type"
+msgstr "Type"
+
+#: .\screen\templates\components\announcements.html:13
+msgid "Message"
+msgstr "Message"
+
+#: .\screen\templates\components\footer.html:5
+msgid "Developed by André Théo LAURET"
+msgstr "Développé par André Théo LAURET"
+
+#: .\screen\templates\components\header.html:23
+msgid ""
+"['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', "
+"'Saturday']"
+msgstr "['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', "
+"'Samedi']"
+
+#: .\screen\templates\components\header.html:24
+msgid ""
+"['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', "
+"'september', 'october', 'november', 'december']"
+msgstr ""
+"['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', "
+"'septembre', 'octobre', 'novembre', 'décembre']"
+
+#: .\screen\templates\components\planning.html:5
+msgid "Organisation of classrooms"
+msgstr "Organisation des salles de classe"
+
+#: .\screen\templates\events\valentine.html:6
+msgid "wishes you a happy Valentine's Day!"
+msgstr "vous souhaite une joyeuse Saint-Valentin !"

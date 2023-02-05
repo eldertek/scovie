@@ -9,5 +9,5 @@ class MediaForm(forms.ModelForm):
 
     def clean(self):
         if Media.objects.count() >= 6:
-            raise forms.ValidationError("Vous avez atteint le nombre maximum d'images")
+            raise forms.ValidationError(_("You have reached the maximum number of images"))
         return self.cleaned_data

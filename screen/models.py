@@ -3,6 +3,7 @@ import os
 import re
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 # Functions
@@ -16,7 +17,7 @@ def format_filename(instance, filename):
 # Models
 class Announcement(models.Model):
     class Meta:
-        verbose_name = "annonce"
+        verbose_name = _("announcement")
         ordering = ['type']
 
     type = models.CharField(max_length=20, unique=True)
@@ -28,7 +29,7 @@ class Announcement(models.Model):
 
 class Room(models.Model):
     class Meta:
-        verbose_name = "salle"
+        verbose_name = _("room")
         ordering = ['name']
 
     name = models.CharField(max_length=5)
@@ -43,7 +44,7 @@ class Room(models.Model):
 
 class Teacher(models.Model):
     class Meta:
-        verbose_name = "enseignant"
+        verbose_name = _("teacher")
         ordering = ['name']
 
     name = models.CharField(max_length=15)
@@ -54,7 +55,7 @@ class Teacher(models.Model):
 
 class Time(models.Model):
     class Meta:
-        verbose_name = "période"
+        verbose_name = _("time")
         ordering = ['rank']
 
     name = models.CharField(max_length=5)
@@ -66,19 +67,19 @@ class Time(models.Model):
 
 class Planning(models.Model):
     class Meta:
-        verbose_name = "planning"
+        verbose_name = _("planning")
 
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     time = models.ForeignKey(Time, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Planning pour ' + self.time.name + ' en ' + self.room.name + ' avec ' + self.teacher.name
+        return _('Planning pour ' + self.time.name + ' en ' + self.room.name + ' avec ' + self.teacher.name)
 
 
 class Configuration(models.Model):
     class Meta:
-        verbose_name = "paramètre"
+        verbose_name = _("parameter")
 
     name = models.CharField(max_length=30)
     value = models.CharField(max_length=90)
@@ -96,7 +97,7 @@ class Configuration(models.Model):
 
 class Media(models.Model):
     class Meta:
-        verbose_name = "média"
+        verbose_name = _("media")
 
     name = models.CharField(max_length=30)
     image = models.ImageField(upload_to=format_filename)
@@ -106,4 +107,4 @@ class Media(models.Model):
         super().delete(*args, **kwargs)
 
     def __str__(self):
-        return "Image: " + self.name
+        return _("Image: " + self.name)

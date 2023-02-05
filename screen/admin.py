@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 
 from .forms import MediaForm
 from .models import (Announcement, Configuration, Media, Planning, Room,
@@ -20,8 +21,8 @@ class AnnouncementAdmin(admin.ModelAdmin):
         return actions
 
     def delete_model(self, request, obj):
-        if obj.type in ['Retards', 'Absences', 'Remplacements', 'Informations']:
-            self.message_user(request, "Cannot delete default type")
+        if obj.type in [_('Retards'), _('Absences'), _('Remplacements'), _('Informations')]:
+            self.message_user(request, _("Cannot delete default type"))
         else:
             obj.delete()
 
@@ -72,7 +73,7 @@ class ConfigurationAdmin(admin.ModelAdmin):
         return actions
 
     def delete_model(self, request, obj):
-        self.message_user(request, "Cannot delete default configuration")
+        self.message_user(request, _("Cannot delete default configuration"))
 
 
 admin.site.register(Configuration, ConfigurationAdmin)
@@ -87,7 +88,7 @@ class MediaAdmin(admin.ModelAdmin):
     def display_image(self, obj):
         return mark_safe(f'<img src="{obj.image.url}" width="100"/>')
 
-    display_image.short_description = 'Aperçu'
+    display_image.short_description = _('Preview')
 
 
 admin.site.register(Media, MediaAdmin)
