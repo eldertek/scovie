@@ -16,8 +16,10 @@ class Command(BaseCommand):
             self.stdout.write(self.style.MIGRATE_HEADING(_('Creating backup...')))
             # Save current directory in backup_dir
             backup_dir = os.getcwd()
+            # Get parent directory
+            destination_dir = os.path.dirname(backup_dir)
             # Copy all files in a backup directory
-            os.system(f'cp -r {backup_dir} {backup_dir}/backup')
+            os.system(f'cp -r {backup_dir} {destination_dir}/backup')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Updating scovie...')))
             # Pull the latest changes from the github repository
