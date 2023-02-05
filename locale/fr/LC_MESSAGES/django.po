@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-05 21:52+0400\n"
+"POT-Creation-Date: 2023-02-05 21:59+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -223,11 +223,11 @@ msgstr "Image : "
 
 #: .\screen\templates\admin\planning_change_list.html:15
 msgid "Please correct the error below."
-msgstr ""
+msgstr "Veuillez corriger l'erreur ci-dessous."
 
 #: .\screen\templates\admin\planning_change_list.html:15
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "Veuillez corriger les erreurs ci-dessous."
 
 #: .\screen\templates\components\announcements.html:5
 msgid "Announcements of the day | Absent teachers"
