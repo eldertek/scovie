@@ -6,22 +6,24 @@
         </span>
     </div>
 </nav>
-<table id="announcements-table" class="table table-bordered border-white table-dark table-striped">
-    <thead>
-        <tr>
-            <th width="14%">{% translate "Type" %}</th>
-            <th width="86%">{% translate "Message" %}</th>
-        </tr>
-    </thead>
-    <tbody id="announcements-body">
-        {% for announcement in announcements %}
-        <tr id="announcements-row">
-            <td>{{ announcement.type }}</td>
-            <td>{{ announcement.message }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>    
-</table>
+<div class="table-responsive">
+    <table id="announcements-table" class="table table-bordered border-white table-dark table-striped">
+        <thead>
+            <tr>
+                <th width="14%">{% translate "Type" %}</th>
+                <th width="86%">{% translate "Message" %}</th>
+            </tr>
+        </thead>
+        <tbody id="announcements-body">
+            {% for announcement in announcements %}
+            <tr id="announcements-row">
+                <td>{{ announcement.type }}</td>
+                <td>{{ announcement.message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>    
+    </table>
+</div>
 <script>
     const announcements = document.querySelectorAll("#announcements-row");
     let currentIndex = 0;
@@ -34,7 +36,7 @@
         setInterval(() => rotateAnnouncements(5), 3750);
     } else if (window.innerWidth <= 1000) {
         // Mobile
-        document.getElementById("announcements-title").classList.add("display-3");
+        document.getElementById("announcements-title").classList.add("display-4");
         document.getElementById("announcements-table").classList.add("display-3");
     } else {
         // Desktop

@@ -6,39 +6,41 @@
         </span>
     </div>
 </nav>
-<table id="planning-table" class="table table-bordered border-white table-dark table-striped text-center">
-    <thead>
-        <tr>
-            <th></th>
-            {% for room in rooms %}
-            <th>{{ room.name }}</th>
-            {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for time in times %}
-        <tr>
-            <td>{{ time.name }}</td>
-            {% for room in rooms %}
-            <td>
-                {% for plan in planning %}
-                {% if plan.time == time and plan.room == room %}
-                {{ plan.teacher.name }}
-                {% endif %}
+<div class="table-responsive">
+    <table id="planning-table" class="table table-bordered border-white table-dark table-striped text-center">
+        <thead>
+            <tr>
+                <th></th>
+                {% for room in rooms %}
+                <th>{{ room.name }}</th>
                 {% endfor %}
-            </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for time in times %}
+            <tr>
+                <td>{{ time.name }}</td>
+                {% for room in rooms %}
+                <td>
+                    {% for plan in planning %}
+                    {% if plan.time == time and plan.room == room %}
+                    {{ plan.teacher.name }}
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                {% endfor %}
+            </tr>
             {% endfor %}
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 <script>
     // Style depending on screen size
     if (window.innerWidth >= 3000) {
         document.getElementById("planning-title").classList.add("display-6");
         document.getElementById("planning-table").classList.add("display-6");
     } else if (window.innerWidth <= 1000) {
-        document.getElementById("planning-title").classList.add("display-3");
+        document.getElementById("planning-title").classList.add("display-4");
         document.getElementById("planning-table").classList.add("display-3");
     }
 </script>
