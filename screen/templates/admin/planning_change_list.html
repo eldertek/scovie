@@ -28,35 +28,41 @@
 
         {% block result_list %}
           {% if action_form and actions_on_top and cl.show_admin_actions %}{% admin_actions %}{% endif %}
-          <table style="width: 100%;">
-            <thead>
+          <div class="results">
+            <table id="result_list">
+              <thead>
                 <tr>
-                    <th></th>
+                  <th scope="col" class="column">
+                    <div class="text"><a>{% translate 'time' %}</a></div>
+                  </th>
                     {% for room in rooms %}
-                    <th>{{ room.name }}</th>
+                    <th scope="col" class="column">
+                      <div class="text"><a>{{ room.name }}</a></div>
+                    </th>
                     {% endfor %}
                 </tr>
-            </thead>
-            <tbody>
-              {% for time in times %}
-              <tr>
-                <td>{{ time.name }}</td>
-                {% for room in rooms %}
-                      <td id="{{ room.name }}-{{ time.name }}"></td>
-                {% endfor %}
-              </tr>
+              </thead>
+              <tbody>
+                {% for time in times %}
+                <tr>
+                  <td class="field">{{ time.name }}</td>
+                  {% for room in rooms %}
+                        <td id="{{ room.name }}-{{ time.name }}" style="field"></td>
+                  {% endfor %}
+                </tr>
             {% endfor %}
-            </tbody>
-          </table>
-          <script>
-            {% for plan in planning %}
-              let room_name{{ plan.id }} = "{{ plan.room.name }}";
-              let time_name{{ plan.id }} = "{{ plan.time.name }}";
-              let teacher_name{{ plan.id }} = "{{ plan.teacher.name }}";
-              let td{{ plan.id }} = document.getElementById(room_name{{ plan.id }} + "-" + time_name{{ plan.id }});
-              td{{ plan.id }}.innerHTML = "<a href='{% url 'admin:screen_planning_change' plan.id %}'>" + teacher_name{{ plan.id }} + "</a>";
-            {% endfor %}
-          </script>
+              </tbody>
+            </table>
+            <script>
+              {% for plan in planning %}
+                let room_name{{ plan.id }} = "{{ plan.room.name }}";
+                let time_name{{ plan.id }} = "{{ plan.time.name }}";
+                let teacher_name{{ plan.id }} = "{{ plan.teacher.name }}";
+                let td{{ plan.id }} = document.getElementById(room_name{{ plan.id }} + "-" + time_name{{ plan.id }});
+                td{{ plan.id }}.innerHTML = "<a href='{% url 'admin:screen_planning_change' plan.id %}'>" + teacher_name{{ plan.id }} + "</a>";
+              {% endfor %}
+            </script>
+          </div>
           {% if action_form and actions_on_bottom and cl.show_admin_actions %}{% admin_actions %}{% endif %}
         {% endblock %}
         {% block pagination %}{% pagination cl %}{% endblock %}
