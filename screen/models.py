@@ -11,7 +11,7 @@ def format_filename(instance, filename):
     date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     name, extension = filename.rsplit('.', 1)
     name = re.sub(r'\W+', '', name)
-    return os.path.join('screen/static/uploads/', f"{date}-{name}.{extension}")
+    return os.path.join('static/uploads/', f"{date}-{name}.{extension}")
 
 
 # Models
