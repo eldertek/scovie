@@ -57,7 +57,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Running collectstatic...')))
         # Collect static files
-        os.system('python3 manage.py collectstatic')
+        os.system('python manage.py collectstatic')
         # Create default announcement types (absences, remplacements, retards, informations)
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Creating default announcement types...')))
