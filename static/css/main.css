@@ -1,0 +1,23 @@
+/* Common styles for all pages */
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+/* Style for desktop+signage */
+@media (min-width: 1000px) {
+    body {
+        overflow: hidden;
+    }
+}
+
+/* Style for mobile */
+@media (max-width: 1000px) {
+    body {
+        overflow: visible;
+    }
+}

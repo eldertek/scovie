@@ -36,8 +36,6 @@ class Command(BaseCommand):
             f.write(f'LANGUAGE_CODE = "{language_code}"\n')
         # Activate the language
         activate(language_code)
-        # Reload the settings to take the new language into account
-        settings.configure()
         from django.utils.translation import gettext_lazy as _
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Generating secret key...')))
