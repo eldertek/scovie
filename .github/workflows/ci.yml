@@ -1,4 +1,4 @@
-name: Code Suggestion and Pull Request Changes
+name: Continuous Integration 
 
 on:
   push:
@@ -31,13 +31,6 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add .
         git diff-index --quiet HEAD || git commit -m "Automated code suggestion changes"
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        force: true
 
     - name: Prepare pull request
       uses: peter-evans/create-pull-request@v2
