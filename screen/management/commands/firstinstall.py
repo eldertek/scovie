@@ -15,16 +15,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Delete environment file
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Deleting environment file...')))
+        self.stdout.write(self.style.MIGRATE_HEADING('Deleting environment file...'))
         if os.path.isfile('scovie/environment.py'):
             os.remove('scovie/environment.py')
 
         # Create environment file
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Creating environment file...')))
+        self.stdout.write(self.style.MIGRATE_HEADING('Creating environment file...'))
         with open('scovie/environment.py', 'w') as f:
-            f.write('# CONFIGURATION VARIABLES')
+            f.write('# CONFIGURATION VARIABLES\n')
         # Ask for language
         language_code = input(self.style.NOTICE(
             'What language do you prefer? (fr/en) ? '))
@@ -33,7 +31,7 @@ class Command(BaseCommand):
                 'Invalid language code. Please enter either "fr" or "en".')
         # Write LANGUAGE_CODE in environment file
         with open('scovie/environment.py', 'a') as f:
-            f.write(f'LANGUAGE_CODE = "{language_code}"')
+            f.write(f'LANGUAGE_CODE = "{language_code}"\n')
 
         from django.utils.translation import gettext_lazy as _
         self.stdout.write(self.style.MIGRATE_HEADING(
@@ -42,7 +40,7 @@ class Command(BaseCommand):
         secret_key = secrets.token_hex(24)
         # Write SECRET_KEY in environment file
         with open('scovie/environment.py', 'a') as f:
-            f.write(f'SECRET_KEY = "{secret_key}"')
+            f.write(f'SECRET_KEY = "{secret_key}"\n')
 
         # Clear database
         self.stdout.write(self.style.MIGRATE_HEADING(
