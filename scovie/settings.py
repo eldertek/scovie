@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
-from .environment import LANGUAGE_CODE, SECRET_KEY
 from django.contrib.admin.sites import AdminSite
 from django.utils.translation import gettext_lazy as _
 
@@ -24,10 +23,16 @@ AdminSite.index_title = _("Administration of Scovie")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = SECRET_KEY
-LANGUAGE_CODE = LANGUAGE_CODE
+# Import only if environment.py exists
+if os.path.exists(os.path.join(BASE_DIR, 'scovie', 'environment.py')):
+    from .environment import LANGUAGE_CODE, SECRET_KEY
+    SECRET_KEY = SECRET_KEY
+    LANGUAGE_CODE = LANGUAGE_CODE
+else:
+    SECRET_KEY = ""
+    LANGUAGE_CODE = "en"
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
