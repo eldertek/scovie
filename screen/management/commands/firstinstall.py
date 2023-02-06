@@ -2,7 +2,9 @@ import os
 import re
 import secrets
 
+from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
+from django.utils.translation import activate
 from django.utils.translation import gettext_lazy as _
 
 from screen.models import (Announcement, Configuration, Media, Planning, Room,
@@ -32,7 +34,10 @@ class Command(BaseCommand):
         # Write LANGUAGE_CODE in environment file
         with open('scovie/environment.py', 'a') as f:
             f.write(f'LANGUAGE_CODE = "{language_code}"\n')
-
+        # Activate the language
+        activate(language_code)
+        # Reload the settings to take the new language into account
+        settings.configure()
         from django.utils.translation import gettext_lazy as _
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Generating secret key...')))
