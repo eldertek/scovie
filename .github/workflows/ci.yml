@@ -1,0 +1,49 @@
+name: Code Suggestion and Pull Request Changes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  suggest_and_prepare_pull_request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install black
+
+    - name: Suggest changes
+      run: black . --diff
+
+    - name: Commit changes
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add .
+        git diff-index --quiet HEAD || git commit -m "Automated code suggestion changes"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
+        force: true
+
+    - name: Prepare pull request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        commit-message: 'Automated code suggestion changes'
+        title: 'Automated code suggestion changes'
+        labels: 'automated, code suggestion'
+        reviewers: 'eldertek'
+        assignees: 'eldertek'
