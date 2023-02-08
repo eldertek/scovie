@@ -31,3 +31,17 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add .
         git diff-index --quiet HEAD || git commit -m "Automated code suggestion changes"
+        
+  create_pull_request:
+    needs: suggest_and_commit
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Prepare pull request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        commit-message: 'Automated code suggestion changes'
+        title: 'Automated code suggestion changes'
+        labels: 'automated, code suggestion'
+        reviewers: 'eldertek'
+        assignees: 'eldertek'
