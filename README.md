@@ -31,6 +31,16 @@ To install Scovie, follow these steps:
 4. Run the development server:
 `python manage.py runserver`
 
+## Deployment
+
+To deploy Scovie in a production environment, follow these steps:
+
+1. Install a production-ready web server, such as Nginx or Apache.
+
+2. Configure the web server to serve the Django application.
+
+3. Use a process manager, such as Gunicorn or uWSGI, to run the Django application.
+
 ## Contributing
 
 We welcome contributions to Scovie! If you would like to contribute, please follow these steps:
