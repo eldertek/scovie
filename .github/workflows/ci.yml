@@ -1,42 +1,51 @@
-name: Continuous Integration 
+name: Code Suggestion and Pull Request
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  suggest_and_commit:
+  suggest:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v2
       with:
         python-version: 3.8
 
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
-        pip install black
+        python -m venv venv
+        source venv/bin/activate
+        pip install autopep8
 
-    - name: Suggest changes
-      run: black . --diff
-
-    - name: Commit changes
+    - name: Format Code
       run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
+        autopep8 --in-place --recursive .
+
+    - name: Commit Changes
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
         git add .
-        git diff-index --quiet HEAD || git commit -m "Automated code suggestion changes"
-        
-    - name: Prepare pull request
-      uses: peter-evans/create-pull-request@v4
+        git diff-index --quiet HEAD || git commit -m "Code suggestion via autopep8"
+
+    - name: Push Changes
+      uses: ad-m/github-push-action@main
       with:
-        commit-message: 'Automated code suggestion changes'
-        title: 'Automated code suggestion changes'
-        labels: 'automated, code suggestion'
-        reviewers: 'eldertek'
-        assignees: 'eldertek'
+        github_token: ${{ env.GITHUB_TOKEN }}
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        commit-message: Code suggestion via autopep8
+        title: Code suggestion via autopep8
+        body: |
+          This pull request contains code suggestions from autopep8.
+        branch: auto/code-suggestion
+        labels: code suggestion, autopep8
