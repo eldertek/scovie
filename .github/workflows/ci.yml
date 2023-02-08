@@ -42,7 +42,7 @@ jobs:
       uses: peter-evans/create-pull-request@v2
       with:
         commit-message: Code suggestion via autopep8
-        title: Code suggestion via autopep8
+        title: Automated Code suggestion
         body: |
           This pull request contains code suggestions from autopep8.
         branch: auto/code-suggestion
