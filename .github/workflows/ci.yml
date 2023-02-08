@@ -1,39 +1,39 @@
-name: Code Suggestion and Pull Request
+name: "Code Suggestion"
 
-on: [push]
-
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '16 9 * * 2'
 
 jobs:
-  suggest:
+  analyze:
+    name: Analyze
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'python' ]
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
       with:
-        python-version: 3.8
+        languages: ${{ matrix.language }}
+        queries: security-and-quality
 
-    - name: Install Dependencies
-      run: pip install autopep8
 
-    - name: Format Code
-      run: |
-        autopep8 --in-place --recursive .
-
-    - name: Commit Changes
-      run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
-        git add .
-        git diff-index --quiet HEAD || git commit -m "Code suggestion via autopep8"
-
-    - name: Push Changes
-      uses: ad-m/github-push-action@master
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        category: "/language:${{matrix.language}}"
