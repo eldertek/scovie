@@ -19,8 +19,7 @@ jobs:
         python-version: 3.8
 
     - name: Install Dependencies
-      run: |
-        pip install autopep8
+      run: pip install autopep8
 
     - name: Format Code
       run: |
@@ -34,13 +33,11 @@ jobs:
         git diff-index --quiet HEAD || git commit -m "Code suggestion via autopep8"
 
     - name: Push Changes
-      uses: actions/github-script@v2
+      uses: actions/github-action@v2
       with:
-        script: |
-          git push origin HEAD:auto/code-suggestion
+        args: push origin HEAD:auto/code-suggestion
       env:
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
-
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v2
