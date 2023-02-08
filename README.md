@@ -53,3 +53,5 @@ We welcome contributions to Scovie! If you would like to contribute, please foll
 ## Support
 
 If you need help with Scovie, please open an issue on the repository. We will do our best to assist you.
+
+Copyright (c) 2023 André Théo LAURET - All rights reserved
