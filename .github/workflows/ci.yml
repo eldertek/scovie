@@ -36,9 +36,13 @@ jobs:
         git diff-index --quiet HEAD || git commit -m "Code suggestion via autopep8"
 
     - name: Push Changes
-      uses: ad-m/github-push-action@main
+      uses: actions/github-script@v2
       with:
-        github_token: ${{ env.GITHUB_TOKEN }}
+        script: |
+          git push origin HEAD:auto/code-suggestion
+      env:
+        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v2
