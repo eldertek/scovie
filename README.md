@@ -5,6 +5,7 @@ Scovie is an open-source digital signage system for high schools, built using Py
 ## Features
 
 - Easy content upload and management
+- Support of classroom organization, missing teachers, images, carousel
 - Support for various multimedia formats, including images and gif
 - Responsive design for different screen sizes
 
