@@ -11,16 +11,16 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.8
 
     - name: Install dependencies
       run: |
-        pip install setuptools black
+        pip install black
 
     - name: Suggest changes
       run: black . --diff
@@ -31,7 +31,7 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add .
         git diff-index --quiet HEAD || git commit -m "Automated code suggestion changes"
-        
+
   create_pull_request:
     needs: suggest_and_commit
     runs-on: ubuntu-latest
