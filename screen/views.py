@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from .models import Announcement, Configuration, Planning, Room, Time, Media
 import datetime
-import locale
 
 def index(request):
     # Create a context

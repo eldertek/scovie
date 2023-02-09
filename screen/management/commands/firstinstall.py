@@ -1,8 +1,6 @@
 import os
-import re
 import secrets
 
-from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.utils.translation import activate
 from django.utils.translation import gettext_lazy as _
