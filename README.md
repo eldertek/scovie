@@ -21,10 +21,12 @@ To install Scovie, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/eldertek/scovie`
 2. Go into the directory: `cd scovie`
-3. Install the required dependencies: `pip install -r requirements.txt`
-4. Run first installation: `python manage.py firstinstall`
-5. Run the development server: `python manage.py runserver`
+3. Create virtual environment: `python -m venv virtualenv`
+4. Activate virtual environment `source virtualenv/bin/activate`
+5. Install the required dependencies: `pip install -r requirements.txt`
+6. Run first installation: `python manage.py firstinstall`
 
+**You need to deploy then, see below.**
 ## Deployment
 
 To deploy Scovie in a production environment, follow these steps:
