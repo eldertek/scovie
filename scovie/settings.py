@@ -25,16 +25,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Import only if environment.py exists
 if os.path.exists(os.path.join(BASE_DIR, 'scovie', 'environment.py')):
-    from .environment import LANGUAGE_CODE, SECRET_KEY
+    from .environment import LANGUAGE_CODE, SECRET_KEY, DEBUG, ALLOWED_HOSTS
     SECRET_KEY = SECRET_KEY
     LANGUAGE_CODE = LANGUAGE_CODE
+    DEBUG = DEBUG
+    ALLOWED_HOSTS = ALLOWED_HOSTS
 else:
     SECRET_KEY = ""
     LANGUAGE_CODE = "en"
+    DEBUG = False
+    ALLOWED_HOSTS = []
 
-DEBUG = True
 
-ALLOWED_HOSTS = []
 
 # Application definition
 

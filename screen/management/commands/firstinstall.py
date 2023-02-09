@@ -15,12 +15,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Delete environment file
-        self.stdout.write(self.style.MIGRATE_HEADING('Deleting environment file...'))
+        self.stdout.write(self.style.MIGRATE_HEADING(
+            'Deleting environment file...'))
         if os.path.isfile('scovie/environment.py'):
             os.remove('scovie/environment.py')
 
         # Create environment file
-        self.stdout.write(self.style.MIGRATE_HEADING('Creating environment file...'))
+        self.stdout.write(self.style.MIGRATE_HEADING(
+            'Creating environment file...'))
         with open('scovie/environment.py', 'w') as f:
             f.write('# CONFIGURATION VARIABLES\n')
         # Ask for language
@@ -42,6 +44,14 @@ class Command(BaseCommand):
         # Write SECRET_KEY in environment file
         with open('scovie/environment.py', 'a') as f:
             f.write(f'SECRET_KEY = "{secret_key}"\n')
+
+        # Write DEBUG in environment file
+        with open('scovie/environment.py', 'a') as f:
+            f.write(f'DEBUG = "False"\n')
+
+        # Write ALLOWED_HOSTS in environment file
+        with open('scovie/environment.py', 'a') as f:
+            f.write(f'ALLOWED_HOSTS = []\n')
 
         # Clear database
         self.stdout.write(self.style.MIGRATE_HEADING(
