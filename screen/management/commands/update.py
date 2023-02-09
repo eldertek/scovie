@@ -1,4 +1,6 @@
 import os
+
+from django.core.management.base import BaseCommand
 from django.utils.translation import gettext_lazy as _
 
 
@@ -38,10 +40,6 @@ class Command(BaseCommand):
             self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
             # Migrate
             os.system('python3 manage.py migrate')
-            # Print a message to the user
-            self.stdout.write(self.style.MIGRATE_HEADING(_('Running collectstatic...')))
-            # Collect static files
-            os.system('python3 manage.py collectstatic')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Scovie updated !')))
         else: 
