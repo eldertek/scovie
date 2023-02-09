@@ -1,6 +1,10 @@
 {% load static %}
 {% load i18n %}
-<canvas id="heart"></canvas>
+
+<video id="valentineVideo" autoplay loop>
+  <source src="/static/videos/valentine.mp4" type="video/mp4">
+</video>
+
 <nav class="navbar fixed-bottom bg-white" style="--bs-bg-opacity: .20;">
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <span class="navbar-brand mb-0 text-light">
@@ -10,7 +14,7 @@
 </nav>
 
 <audio id="valentineSong" autoplay loop>
-    <source src="/static/music/valentine.mp3" type="audio/mpeg">
+    <source src="/static/musics/valentine.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -24,5 +28,3 @@
     });
   });
 </script>
-
-<script src="{% static 'js/heart.js' %}"></script>
