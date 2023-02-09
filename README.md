@@ -20,9 +20,10 @@ Scovie is an open-source digital signage system for high schools, built using Py
 To install Scovie, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/eldertek/scovie`
-2. Install the required dependencies: `pip install -r requirements.txt`
-3. Run first installation: `python manage.py firstinstall`
-4. Run the development server: `python manage.py runserver`
+2. Go into the directory: `cd scovie`
+3. Install the required dependencies: `pip install -r requirements.txt`
+4. Run first installation: `python manage.py firstinstall`
+5. Run the development server: `python manage.py runserver`
 
 ## Deployment
 
