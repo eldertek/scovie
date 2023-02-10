@@ -47,7 +47,7 @@ class Command(BaseCommand):
 
         # Write DEBUG in environment file
         with open('scovie/environment.py', 'a') as f:
-            f.write(f'DEBUG = "False"\n')
+            f.write(f'DEBUG = False\n')
 
         # Write ALLOWED_HOSTS in environment file
         with open('scovie/environment.py', 'a') as f:
