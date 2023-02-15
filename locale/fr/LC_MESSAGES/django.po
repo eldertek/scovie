@@ -221,7 +221,7 @@ msgstr "Planning pour {} en {} avec {}"
 
 #: .\screen\models.py:83
 msgid "parameters"
-msgstr "paramètre"
+msgstr "paramètres"
 
 #: .\screen\models.py:86
 msgid "enterprise name"
