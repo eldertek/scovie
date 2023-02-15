@@ -1,8 +1,9 @@
 # Ignore database
 db.sqlite3
 
-# Ignore environment variables
+# Ignore environment
 environment.py
+environment
 
 # Ignore all .pyc files
 __pycache__
