@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-09 18:49+0400\n"
+"POT-Creation-Date: 2023-02-15 21:42+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -18,66 +18,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\scovie\settings.py:18
+#: .\scovie\settings.py:19
 msgid "Scovie"
 msgstr "Scovie"
 
-#: .\scovie\settings.py:19
+#: .\scovie\settings.py:20
 msgid "Scovie - Information management software"
 msgstr "Scovie - Logiciel de gestion d'informations"
 
-#: .\scovie\settings.py:20
+#: .\scovie\settings.py:21
 msgid "Administration of Scovie"
 msgstr "Administration de Scovie"
 
-#: .\screen\admin.py:24
+#: .\screen\admin.py:25
 msgid "Retards"
 msgstr "Retards"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:71
+#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:71
 msgid "Absences"
 msgstr "Absences"
 
-#: .\screen\admin.py:24
+#: .\screen\admin.py:25
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:24 .\screen\management\commands\firstinstall.py:76
+#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:76
 msgid "Informations"
 msgstr "Informations"
 
-#: .\screen\admin.py:25
+#: .\screen\admin.py:26
 msgid "Cannot delete default type"
 msgstr "Impossible de supprimer le type par défaut"
 
-#: .\screen\admin.py:76
-msgid "Cannot delete default configuration"
-msgstr "Impossible de supprimer la configuration par défaut"
-
-#: .\screen\admin.py:91
+#: .\screen\admin.py:77
 msgid "Preview"
 msgstr "Aperçu"
 
-#: .\screen\admin.py:106
+#: .\screen\admin.py:92
 msgid "Delete all"
 msgstr "Supprimer tout"
 
-#: .\screen\admin.py:111
+#: .\screen\admin.py:97
 msgid "All items have been deleted."
 msgstr "Tous les éléments ont été supprimés."
 
-#: .\screen\forms.py:9 .\screen\models.py:47 .\screen\models.py:50
-#: .\screen\models.py:74
+#: .\screen\forms.py:9 .\screen\models.py:48 .\screen\models.py:51
+#: .\screen\models.py:75
 msgid "teacher"
 msgstr "enseignant"
 
-#: .\screen\forms.py:10 .\screen\models.py:58 .\screen\models.py:61
-#: .\screen\models.py:73 .\screen\templates\admin\planning_change_list.html:36
+#: .\screen\forms.py:10 .\screen\models.py:59 .\screen\models.py:62
+#: .\screen\models.py:74 .\screen\templates\admin\planning_change_list.html:36
 msgid "time"
 msgstr "heure"
 
-#: .\screen\forms.py:11 .\screen\models.py:32 .\screen\models.py:35
-#: .\screen\models.py:72
+#: .\screen\forms.py:11 .\screen\models.py:33 .\screen\models.py:36
+#: .\screen\models.py:73
 msgid "room"
 msgstr "salle"
 
@@ -195,55 +191,67 @@ msgstr "Scovie mis à jour !"
 msgid "Scovie can only be updated on a linux system !"
 msgstr "Scovie peut uniquement être mis à jour sur les systèmes linux !"
 
-#: .\screen\models.py:20
+#: .\screen\models.py:21
 msgid "announcement"
 msgstr "annonce"
 
-#: .\screen\models.py:23
+#: .\screen\models.py:24
 msgid "type"
 msgstr "type"
 
-#: .\screen\models.py:24
+#: .\screen\models.py:25
 #, fuzzy
 #| msgid "Message"
 msgid "message"
 msgstr "message"
 
-#: .\screen\models.py:62
+#: .\screen\models.py:63
 msgid "display order"
 msgstr "ordre d'affichage"
 
-#: .\screen\models.py:70
+#: .\screen\models.py:71
 msgid "planning"
 msgstr "planning"
 
-#: .\screen\models.py:77
+#: .\screen\models.py:78
 msgid "Planning for {} in {} with {}"
 msgstr "Planning pour {} en {} avec {}"
 
-#: .\screen\models.py:82 .\screen\models.py:84
+#: .\screen\models.py:83
 msgid "parameter"
 msgstr "paramètre"
 
 #: .\screen\models.py:85
-msgid "value"
-msgstr "valeur"
+msgid "enterprise name"
+msgstr "nom de l'entreprise"
 
-#: .\screen\models.py:100
+#: .\screen\models.py:86
+msgid "emergency status"
+msgstr "statut du mode urgence"
+
+#: .\screen\models.py:87
+msgid "emergency title"
+msgstr "titre du mode urgence"
+
+#: .\screen\models.py:88
+msgid "emergency subtitle"
+msgstr "sous-titre du mode urgence"
+
+#: .\screen\models.py:96
 msgid "media"
 msgstr "média"
 
-#: .\screen\models.py:102
+#: .\screen\models.py:98
 msgid "name"
 msgstr "nom"
 
-#: .\screen\models.py:103
+#: .\screen\models.py:99
 #, fuzzy
 #| msgid "Image 1"
 msgid "image"
 msgstr "Image 1"
 
-#: .\screen\models.py:110
+#: .\screen\models.py:106
 #, fuzzy
 #| msgid "Image: "
 msgid "Image: {}"
@@ -292,9 +300,15 @@ msgstr ""
 msgid "Organisation of classrooms"
 msgstr "Organisation des salles de classe"
 
-#: .\screen\templates\events\valentine.html:6
+#: .\screen\templates\events\valentine.html:11
 msgid "wishes you a happy Valentine Day!"
 msgstr "vous souhaite une joyeuse Saint-Valentin !"
+
+#~ msgid "Cannot delete default configuration"
+#~ msgstr "Impossible de supprimer la configuration par défaut"
+
+#~ msgid "value"
+#~ msgstr "valeur"
 
 #, fuzzy
 #~| msgid "Running migrate..."
