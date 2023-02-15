@@ -53,10 +53,12 @@ class Command(BaseCommand):
         with open('.env', 'a') as f:
             f.write(f'ALLOWED_HOSTS="127.0.0.1"\n')
 
-        # Clear database
+        # Delete database
         self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Cleaning up database...')))
-        os.system('python manage.py flush --no-input')
+            _('Deleting database...')))
+        if os.path.isfile('db.sqlite3'):
+            os.remove('db.sqlite3')
+            
         # Make migrations
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Running makemigrations...')))
