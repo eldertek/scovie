@@ -2,11 +2,13 @@ from django.shortcuts import render
 from .models import Announcement, Configuration, Planning, Room, Time, Media
 import datetime
 
+config = Configuration.get_solo
+
 def index(request):
     # Create a context
     context = {}
     # Get emergency status from configuration
-    emergency_mode = Configuration.objects.get('emergency_mode')
+    emergency_mode = config.emergency_mode
     # If emergency status is True
     if emergency_mode == 'True':
         # Force screen mode to emergency
@@ -16,8 +18,8 @@ def index(request):
         mobile_screen_modes = ['emergency']
         # Emergency context
         emergency_context = {
-            'emergency_title': Configuration.objects.get('emergency_title'),
-            'emergency_subtitle': Configuration.objects.get('emergency_subtitle')
+            'emergency_title': config.emergency_title,
+            'emergency_subtitle': config.emergency_subtitle,
         }
         # Update context with emergency context
         context.update(emergency_context)
@@ -32,7 +34,7 @@ def index(request):
             screen_modes.append('valentine')
 
     temp = {
-        'enterprise_name': Configuration.objects.get('enterprise_name'),
+        'enterprise_name': config.enterprise_name,
         'planning': Planning.objects.all(),
         'rooms':  Room.objects.filter(planning__teacher__isnull=False).distinct(),
         'announcements': Announcement.objects.all(),
