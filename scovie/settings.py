@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from environ import Env
 from django.contrib.admin.sites import AdminSite
 from django.utils.translation import gettext_lazy as _
 
@@ -23,20 +24,9 @@ AdminSite.index_title = _("Administration of Scovie")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Import only if environment.py exists
-if os.path.exists(os.path.join(BASE_DIR, 'scovie', 'environment.py')):
-    from .environment import LANGUAGE_CODE, SECRET_KEY, DEBUG, ALLOWED_HOSTS
-    SECRET_KEY = SECRET_KEY
-    LANGUAGE_CODE = LANGUAGE_CODE
-    DEBUG = DEBUG
-    ALLOWED_HOSTS = ALLOWED_HOSTS
-else:
-    SECRET_KEY = ""
-    LANGUAGE_CODE = "en"
-    DEBUG = False
-    ALLOWED_HOSTS = []
-
-
+SECRET_KEY = ""
+DEBUG = False
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -120,6 +110,8 @@ LANGUAGES = [
     ('fr', 'Français'),
 ]
 
+LANGUAGE_CODE = "en"
+
 LOCALE_PATHS = [
     BASE_DIR / 'locale'
 ]
@@ -141,3 +133,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Load environment variables from .env file
+env = Env()
+env.read_env(BASE_DIR / '.env')
