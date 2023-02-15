@@ -80,15 +80,14 @@ class Planning(models.Model):
 
 class Configuration(SingletonModel):
     class Meta:
-        verbose_name = _("parameter")
+        verbose_name = _("parameters")
+
 
     enterprise_name = models.CharField(max_length=30, verbose_name=_("enterprise name"))
     emergency_mode = models.BooleanField(default=False, verbose_name=_("emergency mode"))
     emergency_title = models.CharField(max_length=30, verbose_name=_("emergency title"))
     emergency_subtitle = models.CharField(max_length=30, verbose_name=_("emergency subtitle"))
 
-    def __str__(self):
-        return self.name + ' = ' + self.value
 
 
 class Media(models.Model):

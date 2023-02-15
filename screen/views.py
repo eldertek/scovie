@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Announcement, Configuration, Planning, Room, Time, Media
 import datetime
 
-config = Configuration.get_solo
+config = Configuration.get_solo()
 
 def index(request):
     # Create a context
