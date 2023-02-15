@@ -3,7 +3,7 @@ db.sqlite3
 
 # Ignore environment
 environment.py
-environment
+virtualenv
 
 # Ignore all .pyc files
 __pycache__
