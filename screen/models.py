@@ -83,10 +83,10 @@ class Configuration(SingletonModel):
         verbose_name = _("parameters")
 
 
-    enterprise_name = models.CharField(max_length=30, verbose_name=_("enterprise name"))
+    enterprise_name = models.CharField(max_length=50, verbose_name=_("enterprise name"))
     emergency_mode = models.BooleanField(default=False, verbose_name=_("emergency mode"))
-    emergency_title = models.CharField(max_length=30, verbose_name=_("emergency title"))
-    emergency_subtitle = models.CharField(max_length=30, verbose_name=_("emergency subtitle"))
+    emergency_title = models.CharField(max_length=50, verbose_name=_("emergency title"))
+    emergency_subtitle = models.CharField(max_length=50, verbose_name=_("emergency subtitle"))
 
 
 
