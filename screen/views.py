@@ -6,7 +6,7 @@ def index(request):
     # Create a context
     context = {}
     # Get emergency status from configuration
-    emergency_status = Configuration.get_value('emergency_status')
+    emergency_status = Configuration.objects.get('emergency_status')
     # If emergency status is True
     if emergency_status == 'True':
         # Force screen mode to emergency
@@ -16,8 +16,8 @@ def index(request):
         mobile_screen_modes = ['emergency']
         # Emergency context
         emergency_context = {
-            'emergency_title': Configuration.get_value('emergency_title'),
-            'emergency_subtitle': Configuration.get_value('emergency_subtitle')
+            'emergency_title': Configuration.objects.get('emergency_title'),
+            'emergency_subtitle': Configuration.objects.get('emergency_subtitle')
         }
         # Update context with emergency context
         context.update(emergency_context)
@@ -32,7 +32,7 @@ def index(request):
             screen_modes.append('valentine')
 
     temp = {
-        'enterprise_name': Configuration.get_value('enterprise_name'),
+        'enterprise_name': Configuration.objects.get('enterprise_name'),
         'planning': Planning.objects.all(),
         'rooms':  Room.objects.filter(planning__teacher__isnull=False).distinct(),
         'announcements': Announcement.objects.all(),

@@ -1,4 +1,5 @@
 from django.contrib import admin, messages
+from solo.admin import SingletonModelAdmin
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
@@ -61,22 +62,7 @@ admin.site.register(Room, RoomAdmin)
 
 
 # Admin interface for thhe configurations
-class ConfigurationAdmin(admin.ModelAdmin):
-    list_display = ['name', 'value']
-    list_editable = ['value']
-    list_display_links = None
-
-    def get_actions(self, request):
-        actions = super().get_actions(request)
-        if 'delete_selected' in actions:
-            del actions['delete_selected']
-        return actions
-
-    def delete_model(self, request, obj):
-        self.message_user(request, _("Cannot delete default configuration"))
-
-
-admin.site.register(Configuration, ConfigurationAdmin)
+admin.site.register(Configuration, SingletonModelAdmin)
 
 
 # Admin interface for the medias

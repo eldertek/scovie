@@ -3,6 +3,7 @@ import os
 import re
 
 from django.db import models
+from solo.models import SingletonModel
 from django.utils.translation import gettext_lazy as _
 
 
@@ -77,19 +78,14 @@ class Planning(models.Model):
          return (_('Planning for {} in {} with {}').format(self.time.name, self.room.name, self.teacher.name))
 
 
-class Configuration(models.Model):
+class Configuration(SingletonModel):
     class Meta:
         verbose_name = _("parameter")
 
-    name = models.CharField(max_length=30, unique=True, verbose_name=_("parameter"))
-    value = models.CharField(max_length=90, verbose_name=_("value"))
-
-    @classmethod
-    def get_value(cls, name):
-        try:
-            return cls.objects.get(name=name).value
-        except cls.DoesNotExist:
-            return None
+    enterprise_name = models.CharField(max_length=30, verbose_name=_("enterprise name"))
+    emergency_status = models.BooleanField(default=False, verbose_name=_("emergency status"))
+    emergency_title = models.CharField(max_length=30, verbose_name=_("emergency title"))
+    emergency_subtitle = models.CharField(max_length=30, verbose_name=_("emergency subtitle"))
 
     def __str__(self):
         return self.name + ' = ' + self.value
