@@ -6,9 +6,9 @@ def index(request):
     # Create a context
     context = {}
     # Get emergency status from configuration
-    emergency_status = Configuration.objects.get('emergency_status')
+    emergency_mode = Configuration.objects.get('emergency_mode')
     # If emergency status is True
-    if emergency_status == 'True':
+    if emergency_mode == 'True':
         # Force screen mode to emergency
         screen_mode = 'emergency'
         # Clean screen modes with only emergency

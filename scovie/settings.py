@@ -32,7 +32,7 @@ SECRET_KEY = env.str("SECRET_KEY", default="unsecure-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 # SECURITY WARNING: don't run with non-needed hosts in production!
-ALLOWED_HOSTS = env.str("ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = env.str("ALLOWED_HOSTS", default="localhost").split(",")
 
 # Application definition
 

@@ -64,6 +64,8 @@ class Command(BaseCommand):
         # Migrate
         self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
         os.system('python manage.py migrate')
+        # Get config
+        config = Configuration.get_solo()
         # Create default announcement types (absences, remplacements, retards, informations)
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Creating default announcement types...')))
@@ -77,13 +79,12 @@ class Command(BaseCommand):
         # Create configuration default values
         enterprise_name = input(self.style.NOTICE(
             _('What is the name of your enterprise ? ')))
-        Configuration.objects.create(
-            name="enterprise_name", value=str(enterprise_name))
-        Configuration.objects.create(name="emergency_status", value=False)
-        Configuration.objects.create(
-            name="emergency_title", value=_("Emergency mode ON !"))
-        Configuration.objects.create(name="emergency_subtitle", value=_(
-            "Please follow security instructions"))
+        config.enterprise_name = enterprise_name
+        config.emergency_mode = False
+        config.emergency_title = _("Emergency mode ON !")
+        config.emergency_subtitle = _("Please follow security instructions")
+        # Save configuration
+        config.save()
         # Create time defaults
         Time.objects.create(name="M1", rank=1)
         Time.objects.create(name="M2", rank=2)
