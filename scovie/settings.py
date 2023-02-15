@@ -20,13 +20,19 @@ AdminSite.site_title = _("Scovie")
 AdminSite.site_header = _("Scovie - Information management software")
 AdminSite.index_title = _("Administration of Scovie")
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = ""
-DEBUG = False
-ALLOWED_HOSTS = []
+# Load environment variables from .env file
+env = Env()
+env.read_env(BASE_DIR / '.env')
+
+# SECURITY WARNING: don't expose the secret key used in production!
+SECRET_KEY = env.str("SECRET_KEY", default="unsecure-secret-key")
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env.bool("DEBUG", default=False)
+# SECURITY WARNING: don't run with non-needed hosts in production!
+ALLOWED_HOSTS = env.str("ALLOWED_HOSTS").split(",")
 
 # Application definition
 
@@ -110,7 +116,7 @@ LANGUAGES = [
     ('fr', 'Français'),
 ]
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = env.str("LANGUAGE_CODE", default="en")
 
 LOCALE_PATHS = [
     BASE_DIR / 'locale'
@@ -133,7 +139,3 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Load environment variables from .env file
-env = Env()
-env.read_env(BASE_DIR / '.env')

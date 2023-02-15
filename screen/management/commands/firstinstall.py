@@ -17,13 +17,13 @@ class Command(BaseCommand):
         # Delete environment file
         self.stdout.write(self.style.MIGRATE_HEADING(
             'Deleting environment file...'))
-        if os.path.isfile('scovie/environment.py'):
-            os.remove('scovie/environment.py')
+        if os.path.isfile('.env'):
+            os.remove('.env')
 
         # Create environment file
         self.stdout.write(self.style.MIGRATE_HEADING(
             'Creating environment file...'))
-        with open('scovie/environment.py', 'w') as f:
+        with open('.env', 'w') as f:
             f.write('# CONFIGURATION VARIABLES\n')
         # Ask for language
         language_code = input(self.style.NOTICE(
@@ -32,8 +32,8 @@ class Command(BaseCommand):
             raise CommandError(
                 'Invalid language code. Please enter either "fr" or "en".')
         # Write LANGUAGE_CODE in environment file
-        with open('scovie/environment.py', 'a') as f:
-            f.write(f'LANGUAGE_CODE = "{language_code}"\n')
+        with open('.env', 'a') as f:
+            f.write(f'LANGUAGE_CODE="{language_code}"\n')
         # Activate the language
         activate(language_code)
         from django.utils.translation import gettext_lazy as _
@@ -42,16 +42,16 @@ class Command(BaseCommand):
         # Generate a new SECRET_KEY
         secret_key = secrets.token_hex(24)
         # Write SECRET_KEY in environment file
-        with open('scovie/environment.py', 'a') as f:
-            f.write(f'SECRET_KEY = "{secret_key}"\n')
+        with open('.env', 'a') as f:
+            f.write(f'SECRET_KEY="{secret_key}"\n')
 
         # Write DEBUG in environment file
-        with open('scovie/environment.py', 'a') as f:
-            f.write(f'DEBUG = False\n')
+        with open('.env', 'a') as f:
+            f.write(f'DEBUG=False\n')
 
         # Write ALLOWED_HOSTS in environment file
-        with open('scovie/environment.py', 'a') as f:
-            f.write(f'ALLOWED_HOSTS = []\n')
+        with open('.env', 'a') as f:
+            f.write(f'ALLOWED_HOSTS="127.0.0.1"\n')
 
         # Clear database
         self.stdout.write(self.style.MIGRATE_HEADING(
