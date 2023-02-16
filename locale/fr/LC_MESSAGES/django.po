@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 10:54+0400\n"
+"POT-Creation-Date: 2023-02-16 11:01+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -58,6 +58,10 @@ msgstr "Supprimer tout"
 msgid "All items have been deleted."
 msgstr "Tous les éléments ont été supprimés."
 
+#: .\screen\apps.py:6
+msgid "Screen"
+msgstr "Écran"
+
 #: .\screen\forms.py:9 .\screen\models.py:48 .\screen\models.py:51
 #: .\screen\models.py:75
 msgid "teacher"
@@ -96,12 +100,12 @@ msgid "Deleting database..."
 msgstr "Nettoyage de la base de données..."
 
 #: .\screen\management\commands\firstinstall.py:64
-#: .\screen\management\commands\update.py:36
+#: .\screen\management\commands\update.py:38
 msgid "Running makemigrations..."
 msgstr "Exécution de makemigrations..."
 
 #: .\screen\management\commands\firstinstall.py:67
-#: .\screen\management\commands\update.py:40
+#: .\screen\management\commands\update.py:42
 msgid "Running migrate..."
 msgstr "Exécution de migrate..."
 
@@ -173,11 +177,11 @@ msgstr "Nettoyage de la base de données..."
 msgid "Updating scovie..."
 msgstr "Mise à jour de scovie"
 
-#: .\screen\management\commands\update.py:44
+#: .\screen\management\commands\update.py:46
 msgid "Scovie updated !"
 msgstr "Scovie mis à jour !"
 
-#: .\screen\management\commands\update.py:47
+#: .\screen\management\commands\update.py:49
 msgid "Scovie can only be updated on a linux system !"
 msgstr "Scovie peut uniquement être mis à jour sur les systèmes linux !"
 
