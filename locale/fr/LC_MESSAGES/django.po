@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-15 22:01+0400\n"
+"POT-Creation-Date: 2023-02-16 10:49+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -239,23 +239,25 @@ msgstr "titre du mode urgence"
 msgid "emergency subtitle"
 msgstr "sous-titre du mode urgence"
 
-#: .\screen\models.py:95
+#: .\screen\models.py:92
+msgid "Application configuration"
+msgstr "Configuration de l'application"
+
+#: .\screen\models.py:98
 msgid "media"
 msgstr "média"
 
-#: .\screen\models.py:97
+#: .\screen\models.py:100
 msgid "name"
 msgstr "nom"
 
-#: .\screen\models.py:98
+#: .\screen\models.py:101
 #, fuzzy
 #| msgid "Image 1"
 msgid "image"
 msgstr "Image 1"
 
-#: .\screen\models.py:105
-#, fuzzy
-#| msgid "Image: "
+#: .\screen\models.py:108
 msgid "Image: {}"
 msgstr "Image : "
 

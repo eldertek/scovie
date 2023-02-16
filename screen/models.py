@@ -88,6 +88,9 @@ class Configuration(SingletonModel):
     emergency_title = models.CharField(max_length=50, verbose_name=_("emergency title"))
     emergency_subtitle = models.CharField(max_length=50, verbose_name=_("emergency subtitle"))
 
+    def __str__(self):
+        return str(_("Application configuration"))
+
 
 
 class Media(models.Model):
