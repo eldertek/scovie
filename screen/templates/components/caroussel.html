@@ -2,7 +2,7 @@
     <div class="carousel-inner">
         {% for media in medias %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <img src="{{ media.image }}" style="height: 100vh; width: 100%; object-fit: cover;" alt="{{ media.name }}"/>
+            <img src="{{ media.image }}" style="height: 100vh; width: 100%; object-fit: auto;" alt="{{ media.name }}"/>
         </div>
         {% endfor %}
     </div>
