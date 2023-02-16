@@ -68,14 +68,13 @@ class Command(BaseCommand):
         os.system('python manage.py migrate')
         # Get config
         config = Configuration.get_solo()
-        # Create default announcement types (absences, remplacements, retards, informations)
+        # Create default announcement types (absences, remplacements, informations)
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Creating default announcement types...')))
         Announcement.objects.create(
             type=_("Absences"), message=_("No absences"))
         Announcement.objects.create(
             type=_("Replacements"), message=_("No replacements"))
-        Announcement.objects.create(type=_("Delays"), message=_("No delays"))
         Announcement.objects.create(
             type=_("Informations"), message=_("No informations"))
         # Create configuration default values

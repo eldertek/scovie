@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 10:49+0400\n"
+"POT-Creation-Date: 2023-02-16 10:54+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -30,10 +30,6 @@ msgstr "Scovie - Logiciel de gestion d'informations"
 msgid "Administration of Scovie"
 msgstr "Administration de Scovie"
 
-#: .\screen\admin.py:25
-msgid "Retards"
-msgstr "Retards"
-
 #: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:75
 msgid "Absences"
 msgstr "Absences"
@@ -42,7 +38,7 @@ msgstr "Absences"
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:80
+#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:79
 msgid "Informations"
 msgstr "Informations"
 
@@ -125,45 +121,37 @@ msgstr "Remplacements"
 msgid "No replacements"
 msgstr "Aucun remplacement"
 
-#: .\screen\management\commands\firstinstall.py:78
-msgid "Delays"
-msgstr "Retards"
-
-#: .\screen\management\commands\firstinstall.py:78
-msgid "No delays"
-msgstr "Aucun retard"
-
-#: .\screen\management\commands\firstinstall.py:80
+#: .\screen\management\commands\firstinstall.py:79
 msgid "No informations"
 msgstr "Aucune information"
 
-#: .\screen\management\commands\firstinstall.py:83
+#: .\screen\management\commands\firstinstall.py:82
 msgid "What is the name of your enterprise ? "
 msgstr "Quel est le nom de votre entreprise ? "
 
-#: .\screen\management\commands\firstinstall.py:86
+#: .\screen\management\commands\firstinstall.py:85
 msgid "Emergency mode ON !"
 msgstr "Mode d'urgence activé !"
 
-#: .\screen\management\commands\firstinstall.py:87
+#: .\screen\management\commands\firstinstall.py:86
 msgid "Please follow security instructions"
 msgstr "Veuillez suivre les instructions de sécurité"
 
+#: .\screen\management\commands\firstinstall.py:99
 #: .\screen\management\commands\firstinstall.py:100
-#: .\screen\management\commands\firstinstall.py:101
 msgid "Room 1"
 msgstr "Salle 1"
 
+#: .\screen\management\commands\firstinstall.py:101
 #: .\screen\management\commands\firstinstall.py:102
-#: .\screen\management\commands\firstinstall.py:103
 msgid "Teacher 1"
 msgstr "Enseignant 1"
 
-#: .\screen\management\commands\firstinstall.py:108
+#: .\screen\management\commands\firstinstall.py:107
 msgid "Image 1"
 msgstr "Image 1"
 
-#: .\screen\management\commands\firstinstall.py:111
+#: .\screen\management\commands\firstinstall.py:110
 msgid "Running createsuperuser..."
 msgstr "Exécution de createsuperuser..."
 

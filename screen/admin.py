@@ -22,7 +22,7 @@ class AnnouncementAdmin(admin.ModelAdmin):
         return actions
 
     def delete_model(self, request, obj):
-        if obj.type in [_('Retards'), _('Absences'), _('Remplacements'), _('Informations')]:
+        if obj.type in [_('Absences'), _('Remplacements'), _('Informations')]:
             self.message_user(request, _("Cannot delete default type"))
         else:
             obj.delete()
