@@ -25,21 +25,23 @@ class Command(BaseCommand):
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Creating database backup...')))
             # Dump database
-            os.system('python3 manage.py dumpdata > db.json')
+            os.system('python manage.py dumpdata > db.json')
             # Move database backup to backup directory
             os.system(f'mv db.json {destination_dir}/backup')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Updating scovie...')))
             # Pull the latest changes from the github repository
             os.system('git pull')
+            # Install requirements
+            os.system('pip install -r requirements.txt')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Running makemigrations...')))
             # Make migrations
-            os.system('python3 manage.py makemigrations')
+            os.system('python manage.py makemigrations')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
             # Migrate
-            os.system('python3 manage.py migrate')
+            os.system('python manage.py migrate')
             # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Scovie updated !')))
         else: 
