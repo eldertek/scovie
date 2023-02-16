@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .models import Announcement, Configuration, Planning, Room, Time, Media
 import datetime
 
-config = Configuration.get_solo()
-
 def index(request):
+    # Get configuration
+    config = Configuration.get_solo()
     # Create a context
     context = {}
     # Get emergency status from configuration
