@@ -30,8 +30,12 @@ def index(request):
         screen_modes = ['all', 'informations', 'caroussel']
         mobile_screen_modes = ['informations']
         # Saint-Valentine day feature
-        if datetime.datetime.now().month == 2 and datetime.datetime.now().day == 14:
+        if config.valentine_day and datetime.date.today() == config.valentine_date:
             screen_modes.append('valentine')
+
+        # Carnival day feature
+        if config.carnival_day and datetime.date.today() == config.carnival_date:
+            screen_modes.append('carnival')
 
     temp = {
         'enterprise_name': config.enterprise_name,

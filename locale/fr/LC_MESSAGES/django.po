@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 11:01+0400\n"
+"POT-Creation-Date: 2023-02-17 11:01+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -58,7 +58,7 @@ msgstr "Supprimer tout"
 msgid "All items have been deleted."
 msgstr "Tous les éléments ont été supprimés."
 
-#: .\screen\apps.py:6
+#: .\screen\apps.py:7
 msgid "Screen"
 msgstr "Écran"
 
@@ -219,37 +219,53 @@ msgstr "paramètres"
 msgid "enterprise name"
 msgstr "nom de l'entreprise"
 
-#: .\screen\models.py:87
+#: .\screen\models.py:88
 msgid "emergency mode"
 msgstr "mode urgence"
 
-#: .\screen\models.py:88
+#: .\screen\models.py:89
 msgid "emergency title"
 msgstr "titre du mode urgence"
 
-#: .\screen\models.py:89
+#: .\screen\models.py:90
 msgid "emergency subtitle"
 msgstr "sous-titre du mode urgence"
 
 #: .\screen\models.py:92
+msgid "carnival day"
+msgstr "journée du carnaval"
+
+#: .\screen\models.py:93
+msgid "carnival date"
+msgstr "date de la journée du carnaval"
+
+#: .\screen\models.py:95
+msgid "valentine day"
+msgstr "journée de la Saint-Valentin"
+
+#: .\screen\models.py:96
+msgid "valentine date"
+msgstr "date de la Saint-Valentin"
+
+#: .\screen\models.py:99
 msgid "Application configuration"
 msgstr "Configuration de l'application"
 
-#: .\screen\models.py:98
+#: .\screen\models.py:105
 msgid "media"
 msgstr "média"
 
-#: .\screen\models.py:100
+#: .\screen\models.py:107
 msgid "name"
 msgstr "nom"
 
-#: .\screen\models.py:101
+#: .\screen\models.py:108
 #, fuzzy
 #| msgid "Image 1"
 msgid "image"
 msgstr "Image 1"
 
-#: .\screen\models.py:108
+#: .\screen\models.py:115
 msgid "Image: {}"
 msgstr "Image : "
 
@@ -295,6 +311,10 @@ msgstr ""
 #: .\screen\templates\components\planning.html:5
 msgid "Organisation of classrooms"
 msgstr "Organisation des salles de classe"
+
+#: .\screen\templates\events\carnival.html:11
+msgid "wishes you a happy Carnival !"
+msgstr "vous souhaite un joyeux Carnaval !"
 
 #: .\screen\templates\events\valentine.html:11
 msgid "wishes you a happy Valentine Day!"

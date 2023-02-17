@@ -84,9 +84,16 @@ class Configuration(SingletonModel):
 
 
     enterprise_name = models.CharField(max_length=50, verbose_name=_("enterprise name"))
+
     emergency_mode = models.BooleanField(default=False, verbose_name=_("emergency mode"))
     emergency_title = models.CharField(max_length=50, verbose_name=_("emergency title"))
     emergency_subtitle = models.CharField(max_length=50, verbose_name=_("emergency subtitle"))
+
+    carnival_day = models.BooleanField(default=False, verbose_name=_("carnival day"))
+    carnival_date = models.DateField(default=datetime.date(2023, 2, 21,), verbose_name=_("carnival date"))
+
+    valentine_day = models.BooleanField(default=False, verbose_name=_("valentine day"))
+    valentine_date = models.DateField(default=datetime.date(2023, 2, 14), verbose_name=_("valentine date"))
 
     def __str__(self):
         return str(_("Application configuration"))

@@ -21,7 +21,7 @@ class MediaForm(forms.ModelForm):
         fields = ['name', 'image']
 
     def clean(self):
-        if Media.objects.count() >= 6:
+        if Media.objects.count() >= 3:
             raise forms.ValidationError(
                 _("You have reached the maximum number of images"))
         return self.cleaned_data
