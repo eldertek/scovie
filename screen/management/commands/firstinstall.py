@@ -59,10 +59,6 @@ class Command(BaseCommand):
         if os.path.isfile('db.sqlite3'):
             os.remove('db.sqlite3')
             
-        # Make migrations
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Running makemigrations...')))
-        os.system('python manage.py makemigrations')
         # Migrate
         self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
         os.system('python manage.py migrate')

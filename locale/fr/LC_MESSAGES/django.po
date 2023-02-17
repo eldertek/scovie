@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 11:01+0400\n"
+"POT-Creation-Date: 2023-02-17 11:25+0400\n"
 "PO-Revision-Date: 2023-02-05 09:15+0400\n"
 "Last-Translator: André Théo LAURET <andrelauret@icloud.com>\n"
 "Language-Team: \n"
@@ -30,7 +30,7 @@ msgstr "Scovie - Logiciel de gestion d'informations"
 msgid "Administration of Scovie"
 msgstr "Administration de Scovie"
 
-#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:75
+#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:71
 msgid "Absences"
 msgstr "Absences"
 
@@ -38,7 +38,7 @@ msgstr "Absences"
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:79
+#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:75
 msgid "Informations"
 msgstr "Informations"
 
@@ -99,63 +99,58 @@ msgstr "Génération de la clé secrète"
 msgid "Deleting database..."
 msgstr "Nettoyage de la base de données..."
 
-#: .\screen\management\commands\firstinstall.py:64
+#: .\screen\management\commands\firstinstall.py:63
 #: .\screen\management\commands\update.py:38
-msgid "Running makemigrations..."
-msgstr "Exécution de makemigrations..."
-
-#: .\screen\management\commands\firstinstall.py:67
-#: .\screen\management\commands\update.py:42
 msgid "Running migrate..."
 msgstr "Exécution de migrate..."
 
-#: .\screen\management\commands\firstinstall.py:73
+#: .\screen\management\commands\firstinstall.py:69
 msgid "Creating default announcement types..."
 msgstr "Création des types d'annonces par défaut..."
 
-#: .\screen\management\commands\firstinstall.py:75
+#: .\screen\management\commands\firstinstall.py:71
 msgid "No absences"
 msgstr "Aucune absence"
 
-#: .\screen\management\commands\firstinstall.py:77
+#: .\screen\management\commands\firstinstall.py:73
 msgid "Replacements"
 msgstr "Remplacements"
 
-#: .\screen\management\commands\firstinstall.py:77
+#: .\screen\management\commands\firstinstall.py:73
 msgid "No replacements"
 msgstr "Aucun remplacement"
 
-#: .\screen\management\commands\firstinstall.py:79
+#: .\screen\management\commands\firstinstall.py:75
 msgid "No informations"
 msgstr "Aucune information"
 
-#: .\screen\management\commands\firstinstall.py:82
+#: .\screen\management\commands\firstinstall.py:78
 msgid "What is the name of your enterprise ? "
 msgstr "Quel est le nom de votre entreprise ? "
 
-#: .\screen\management\commands\firstinstall.py:85
+#: .\screen\management\commands\firstinstall.py:81
 msgid "Emergency mode ON !"
 msgstr "Mode d'urgence activé !"
 
-#: .\screen\management\commands\firstinstall.py:86
+#: .\screen\management\commands\firstinstall.py:82
 msgid "Please follow security instructions"
 msgstr "Veuillez suivre les instructions de sécurité"
 
-#: .\screen\management\commands\firstinstall.py:99
-#: .\screen\management\commands\firstinstall.py:100
+#: .\screen\management\commands\firstinstall.py:95
+#: .\screen\management\commands\firstinstall.py:96
 msgid "Room 1"
 msgstr "Salle 1"
 
-#: .\screen\management\commands\firstinstall.py:101
-#: .\screen\management\commands\firstinstall.py:102
+#: .\screen\management\commands\firstinstall.py:97
+#: .\screen\management\commands\firstinstall.py:98
 msgid "Teacher 1"
 msgstr "Enseignant 1"
 
-#: .\screen\management\commands\firstinstall.py:107
+#: .\screen\management\commands\firstinstall.py:103
 msgid "Image 1"
 msgstr "Image 1"
 
-#: .\screen\management\commands\firstinstall.py:110
+#: .\screen\management\commands\firstinstall.py:106
 msgid "Running createsuperuser..."
 msgstr "Exécution de createsuperuser..."
 
@@ -177,11 +172,11 @@ msgstr "Nettoyage de la base de données..."
 msgid "Updating scovie..."
 msgstr "Mise à jour de scovie"
 
-#: .\screen\management\commands\update.py:46
+#: .\screen\management\commands\update.py:42
 msgid "Scovie updated !"
 msgstr "Scovie mis à jour !"
 
-#: .\screen\management\commands\update.py:49
+#: .\screen\management\commands\update.py:45
 msgid "Scovie can only be updated on a linux system !"
 msgstr "Scovie peut uniquement être mis à jour sur les systèmes linux !"
 

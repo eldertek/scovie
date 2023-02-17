@@ -35,10 +35,6 @@ class Command(BaseCommand):
             # Install requirements
             os.system('pip install -r requirements.txt')
             # Print a message to the user
-            self.stdout.write(self.style.MIGRATE_HEADING(_('Running makemigrations...')))
-            # Make migrations
-            os.system('python manage.py makemigrations')
-            # Print a message to the user
             self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
             # Migrate
             os.system('python manage.py migrate')
