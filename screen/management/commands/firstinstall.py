@@ -53,6 +53,10 @@ class Command(BaseCommand):
         with open('.env', 'a') as f:
             f.write(f'ALLOWED_HOSTS="127.0.0.1"\n')
 
+        # Write TIME_ZONE in environment file
+        with open('.env', 'a') as f:
+            f.write(f'TIME_ZONE="UTC"\n')
+
         # Delete database
         self.stdout.write(self.style.MIGRATE_HEADING(
             _('Deleting database...')))

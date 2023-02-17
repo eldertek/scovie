@@ -122,7 +122,7 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale'
 ]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = env.str("TIME_ZONE", default="UTC")
 
 USE_I18N = True
 
