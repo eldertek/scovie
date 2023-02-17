@@ -9,7 +9,7 @@ server_address="http://127.0.0.1"
 while true; do
     # Check if the server is up
     if curl --output /dev/null --silent --head --fail "$server_address"; then
-        # If the server is up, open the browser        
+        # If the server is up, open the browser
         unclutter &
         pkill chrome
         chromium-browser --kiosk --start-maximized "$server_address" --no-default-browser-check --noerrdialogs --no-message-box --disable-desktop-notifications --autoplay-policy=no-user-gesture-required --force-device-scale-factor=1.5
