@@ -22,8 +22,8 @@ Scovie is an open-source digital signage system for high schools, built using Py
 
 To install Scovie, follow these steps:
 
-1. Create the directory: `mkdir /opt/eldertek/scovie`
-2. Go into the directory: `cd /opt/eldertek/scovie`
+1. Create the directory: `mkdir /opt/eldertek`
+2. Go into the directory: `cd /opt/eldertek`
 3. Clone the repository: `git clone https://github.com/eldertek/scovie && cd scovie`
 4. Create virtual environment: `python -m venv virtualenv`
 5. Activate virtual environment `source virtualenv/bin/activate`
