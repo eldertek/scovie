@@ -48,7 +48,7 @@ class Teacher(models.Model):
         verbose_name = _("teacher")
         ordering = ['name']
 
-    name = models.CharField(max_length=15, verbose_name=_("teacher"))
+    name = models.CharField(max_length=50, verbose_name=_("teacher"))
 
     def __str__(self):
         return self.name
