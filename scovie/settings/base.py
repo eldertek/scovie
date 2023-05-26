@@ -186,7 +186,7 @@ LANGUAGES = [
     ('fr', 'Français'),
 ]
 
-LANGUAGE_CODE = "fr"
+LANGUAGE_CODE = "en"
 
 LOCALE_PATHS = [BASE_PATH / 'locale']
 

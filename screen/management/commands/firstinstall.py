@@ -1,7 +1,5 @@
-import os
-import secrets
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.utils.translation import activate
 from django.utils.translation import gettext_lazy as _
 
@@ -20,8 +18,7 @@ class Command(BaseCommand):
         Announcement.objects.create(type=_("Replacements"), message=_("No replacements"))
         Announcement.objects.create(type=_("Informations"), message=_("No informations"))
         # Create configuration default values
-        enterprise_name = input(self.style.NOTICE(_('What is the name of your enterprise ? ')))
-        config.enterprise_name = enterprise_name
+        config.enterprise_name = "Demonstration"
         config.emergency_mode = False
         config.emergency_title = _("Emergency mode ON !")
         config.emergency_subtitle = _("Please follow security instructions")
