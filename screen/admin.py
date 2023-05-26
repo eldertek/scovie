@@ -1,12 +1,11 @@
 from django.contrib import admin, messages
-from solo.admin import SingletonModelAdmin
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+from solo.admin import SingletonModelAdmin
 
 from .forms import MediaForm
-from .models import (Announcement, Configuration, Media, Planning, Room,
-                     Teacher, Time)
+from .models import Announcement, Configuration, Media, Planning, Room, Teacher, Time
 
 
 # Admin interface for the announcements

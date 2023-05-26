@@ -176,6 +176,7 @@ LOGGING = {
 from django.contrib.admin.sites import AdminSite
 from django.utils.translation import gettext_lazy as _
 
+
 AdminSite.site_title = _("Scovie")
 AdminSite.site_header = _("Scovie - Information management software")
 AdminSite.index_title = _("Administration of Scovie")

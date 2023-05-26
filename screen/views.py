@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from .models import Announcement, Configuration, Planning, Room, Time, Media
 import datetime
+
+from django.shortcuts import render
+
+from .models import Announcement, Configuration, Media, Planning, Room, Time
+
 
 def index(request):
     # Get configuration
