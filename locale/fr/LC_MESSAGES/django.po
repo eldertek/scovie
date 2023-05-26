@@ -30,58 +30,58 @@ msgstr "Scovie - Logiciel de gestion d'informations"
 msgid "Administration of Scovie"
 msgstr "Administration de Scovie"
 
-#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:71
+#: .\scovie\admin.py:25 .\scovie\management\commands\firstinstall.py:71
 msgid "Absences"
 msgstr "Absences"
 
-#: .\screen\admin.py:25
+#: .\scovie\admin.py:25
 msgid "Remplacements"
 msgstr "Remplacements"
 
-#: .\screen\admin.py:25 .\screen\management\commands\firstinstall.py:75
+#: .\scovie\admin.py:25 .\scovie\management\commands\firstinstall.py:75
 msgid "Informations"
 msgstr "Informations"
 
-#: .\screen\admin.py:26
+#: .\scovie\admin.py:26
 msgid "Cannot delete default type"
 msgstr "Impossible de supprimer le type par défaut"
 
-#: .\screen\admin.py:77
+#: .\scovie\admin.py:77
 msgid "Preview"
 msgstr "Aperçu"
 
-#: .\screen\admin.py:92
+#: .\scovie\admin.py:92
 msgid "Delete all"
 msgstr "Supprimer tout"
 
-#: .\screen\admin.py:97
+#: .\scovie\admin.py:97
 msgid "All items have been deleted."
 msgstr "Tous les éléments ont été supprimés."
 
-#: .\screen\apps.py:7
-msgid "Screen"
+#: .\scovie\apps.py:7
+msgid "scovie"
 msgstr "Écran"
 
-#: .\screen\forms.py:9 .\screen\models.py:48 .\screen\models.py:51
-#: .\screen\models.py:75
+#: .\scovie\forms.py:9 .\scovie\models.py:48 .\scovie\models.py:51
+#: .\scovie\models.py:75
 msgid "teacher"
 msgstr "enseignant"
 
-#: .\screen\forms.py:10 .\screen\models.py:59 .\screen\models.py:62
-#: .\screen\models.py:74 .\screen\templates\admin\planning_change_list.html:36
+#: .\scovie\forms.py:10 .\scovie\models.py:59 .\scovie\models.py:62
+#: .\scovie\models.py:74 .\scovie\templates\admin\planning_change_list.html:36
 msgid "time"
 msgstr "heure"
 
-#: .\screen\forms.py:11 .\screen\models.py:33 .\screen\models.py:36
-#: .\screen\models.py:73
+#: .\scovie\forms.py:11 .\scovie\models.py:33 .\scovie\models.py:36
+#: .\scovie\models.py:73
 msgid "room"
 msgstr "salle"
 
-#: .\screen\forms.py:26
+#: .\scovie\forms.py:26
 msgid "You have reached the maximum number of images"
 msgstr "Vous avez atteint le nombre maximum d'images"
 
-#: .\screen\management\commands\firstinstall.py:14
+#: .\scovie\management\commands\firstinstall.py:14
 msgid ""
 "Runs first install commands, be cautious ! This will delete all data in "
 "database !"
@@ -89,213 +89,213 @@ msgstr ""
 "Exécute les premiers commandes d'installation, soyez vigilant ! Cela "
 "effacera toutes les données dans base de données !"
 
-#: .\screen\management\commands\firstinstall.py:41
+#: .\scovie\management\commands\firstinstall.py:41
 msgid "Generating secret key..."
 msgstr "Génération de la clé secrète"
 
-#: .\screen\management\commands\firstinstall.py:58
+#: .\scovie\management\commands\firstinstall.py:58
 #, fuzzy
 #| msgid "Cleaning up database..."
 msgid "Deleting database..."
 msgstr "Nettoyage de la base de données..."
 
-#: .\screen\management\commands\firstinstall.py:63
-#: .\screen\management\commands\update.py:38
+#: .\scovie\management\commands\firstinstall.py:63
+#: .\scovie\management\commands\update.py:38
 msgid "Running migrate..."
 msgstr "Exécution de migrate..."
 
-#: .\screen\management\commands\firstinstall.py:69
+#: .\scovie\management\commands\firstinstall.py:69
 msgid "Creating default announcement types..."
 msgstr "Création des types d'annonces par défaut..."
 
-#: .\screen\management\commands\firstinstall.py:71
+#: .\scovie\management\commands\firstinstall.py:71
 msgid "No absences"
 msgstr "Aucune absence"
 
-#: .\screen\management\commands\firstinstall.py:73
+#: .\scovie\management\commands\firstinstall.py:73
 msgid "Replacements"
 msgstr "Remplacements"
 
-#: .\screen\management\commands\firstinstall.py:73
+#: .\scovie\management\commands\firstinstall.py:73
 msgid "No replacements"
 msgstr "Aucun remplacement"
 
-#: .\screen\management\commands\firstinstall.py:75
+#: .\scovie\management\commands\firstinstall.py:75
 msgid "No informations"
 msgstr "Aucune information"
 
-#: .\screen\management\commands\firstinstall.py:78
+#: .\scovie\management\commands\firstinstall.py:78
 msgid "What is the name of your enterprise ? "
 msgstr "Quel est le nom de votre entreprise ? "
 
-#: .\screen\management\commands\firstinstall.py:81
+#: .\scovie\management\commands\firstinstall.py:81
 msgid "Emergency mode ON !"
 msgstr "Mode d'urgence activé !"
 
-#: .\screen\management\commands\firstinstall.py:82
+#: .\scovie\management\commands\firstinstall.py:82
 msgid "Please follow security instructions"
 msgstr "Veuillez suivre les instructions de sécurité"
 
-#: .\screen\management\commands\firstinstall.py:95
-#: .\screen\management\commands\firstinstall.py:96
+#: .\scovie\management\commands\firstinstall.py:95
+#: .\scovie\management\commands\firstinstall.py:96
 msgid "Room 1"
 msgstr "Salle 1"
 
-#: .\screen\management\commands\firstinstall.py:97
-#: .\screen\management\commands\firstinstall.py:98
+#: .\scovie\management\commands\firstinstall.py:97
+#: .\scovie\management\commands\firstinstall.py:98
 msgid "Teacher 1"
 msgstr "Enseignant 1"
 
-#: .\screen\management\commands\firstinstall.py:103
+#: .\scovie\management\commands\firstinstall.py:103
 msgid "Image 1"
 msgstr "Image 1"
 
-#: .\screen\management\commands\firstinstall.py:106
+#: .\scovie\management\commands\firstinstall.py:106
 msgid "Running createsuperuser..."
 msgstr "Exécution de createsuperuser..."
 
-#: .\screen\management\commands\update.py:8
+#: .\scovie\management\commands\update.py:8
 msgid "Runs an update of scovie, be cautious !"
 msgstr "Exécute une mise à jour de scovie, soyez prudent !"
 
-#: .\screen\management\commands\update.py:14
+#: .\scovie\management\commands\update.py:14
 msgid "Creating backup..."
 msgstr "Création de la sauvegarde..."
 
-#: .\screen\management\commands\update.py:26
+#: .\scovie\management\commands\update.py:26
 #, fuzzy
 #| msgid "Cleaning up database..."
 msgid "Creating database backup..."
 msgstr "Nettoyage de la base de données..."
 
-#: .\screen\management\commands\update.py:32
+#: .\scovie\management\commands\update.py:32
 msgid "Updating scovie..."
 msgstr "Mise à jour de scovie"
 
-#: .\screen\management\commands\update.py:42
+#: .\scovie\management\commands\update.py:42
 msgid "Scovie updated !"
 msgstr "Scovie mis à jour !"
 
-#: .\screen\management\commands\update.py:45
+#: .\scovie\management\commands\update.py:45
 msgid "Scovie can only be updated on a linux system !"
 msgstr "Scovie peut uniquement être mis à jour sur les systèmes linux !"
 
-#: .\screen\models.py:21
+#: .\scovie\models.py:21
 msgid "announcement"
 msgstr "annonce"
 
-#: .\screen\models.py:24
+#: .\scovie\models.py:24
 msgid "type"
 msgstr "type"
 
-#: .\screen\models.py:25
+#: .\scovie\models.py:25
 #, fuzzy
 #| msgid "Message"
 msgid "message"
 msgstr "message"
 
-#: .\screen\models.py:63
+#: .\scovie\models.py:63
 msgid "display order"
 msgstr "ordre d'affichage"
 
-#: .\screen\models.py:71
+#: .\scovie\models.py:71
 msgid "planning"
 msgstr "planning"
 
-#: .\screen\models.py:78
+#: .\scovie\models.py:78
 msgid "Planning for {} in {} with {}"
 msgstr "Planning pour {} en {} avec {}"
 
-#: .\screen\models.py:83
+#: .\scovie\models.py:83
 msgid "parameters"
 msgstr "paramètres"
 
-#: .\screen\models.py:86
+#: .\scovie\models.py:86
 msgid "enterprise name"
 msgstr "nom de l'entreprise"
 
-#: .\screen\models.py:88
+#: .\scovie\models.py:88
 msgid "emergency mode"
 msgstr "mode urgence"
 
-#: .\screen\models.py:89
+#: .\scovie\models.py:89
 msgid "emergency title"
 msgstr "titre du mode urgence"
 
-#: .\screen\models.py:90
+#: .\scovie\models.py:90
 msgid "emergency subtitle"
 msgstr "sous-titre du mode urgence"
 
-#: .\screen\models.py:92
+#: .\scovie\models.py:92
 msgid "carnival day"
 msgstr "journée du carnaval"
 
-#: .\screen\models.py:93
+#: .\scovie\models.py:93
 msgid "carnival date"
 msgstr "date de la journée du carnaval"
 
-#: .\screen\models.py:95
+#: .\scovie\models.py:95
 msgid "valentine day"
 msgstr "journée de la Saint-Valentin"
 
-#: .\screen\models.py:96
+#: .\scovie\models.py:96
 msgid "valentine date"
 msgstr "date de la Saint-Valentin"
 
-#: .\screen\models.py:99
+#: .\scovie\models.py:99
 msgid "Application configuration"
 msgstr "Configuration de l'application"
 
-#: .\screen\models.py:105
+#: .\scovie\models.py:105
 msgid "media"
 msgstr "média"
 
-#: .\screen\models.py:107
+#: .\scovie\models.py:107
 msgid "name"
 msgstr "nom"
 
-#: .\screen\models.py:108
+#: .\scovie\models.py:108
 #, fuzzy
 #| msgid "Image 1"
 msgid "image"
 msgstr "Image 1"
 
-#: .\screen\models.py:115
+#: .\scovie\models.py:115
 msgid "Image: {}"
 msgstr "Image : "
 
-#: .\screen\templates\admin\planning_change_list.html:15
+#: .\scovie\templates\admin\planning_change_list.html:15
 msgid "Please correct the error below."
 msgstr "Veuillez corriger l'erreur ci-dessous."
 
-#: .\screen\templates\admin\planning_change_list.html:15
+#: .\scovie\templates\admin\planning_change_list.html:15
 msgid "Please correct the errors below."
 msgstr "Veuillez corriger les erreurs ci-dessous."
 
-#: .\screen\templates\components\announcements.html:5
+#: .\scovie\templates\components\announcements.html:5
 msgid "Announcements of the day | Absent teachers"
 msgstr "Annonces du jour | Enseignants absents"
 
-#: .\screen\templates\components\announcements.html:13
+#: .\scovie\templates\components\announcements.html:13
 msgid "Type"
 msgstr "Type"
 
-#: .\screen\templates\components\announcements.html:14
+#: .\scovie\templates\components\announcements.html:14
 msgid "Message"
 msgstr "Message"
 
-#: .\screen\templates\components\footer.html:5
+#: .\scovie\templates\components\footer.html:5
 msgid "Developed by André Théo LAURET"
 msgstr "Développé par André Théo LAURET"
 
-#: .\screen\templates\components\header.html:23
+#: .\scovie\templates\components\header.html:23
 msgid ""
 "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', "
 "'Saturday']"
 msgstr ""
 "['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']"
 
-#: .\screen\templates\components\header.html:24
+#: .\scovie\templates\components\header.html:24
 msgid ""
 "['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', "
 "'september', 'october', 'november', 'december']"
@@ -303,14 +303,14 @@ msgstr ""
 "['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', "
 "'septembre', 'octobre', 'novembre', 'décembre']"
 
-#: .\screen\templates\components\planning.html:5
+#: .\scovie\templates\components\planning.html:5
 msgid "Organisation of classrooms"
 msgstr "Organisation des salles de classe"
 
-#: .\screen\templates\events\carnival.html:11
+#: .\scovie\templates\events\carnival.html:11
 msgid "wishes you a happy Carnival !"
 msgstr "vous souhaite un joyeux Carnaval !"
 
-#: .\screen\templates\events\valentine.html:11
+#: .\scovie\templates\events\valentine.html:11
 msgid "wishes you a happy Valentine Day!"
 msgstr "vous souhaite une joyeuse Saint-Valentin !"

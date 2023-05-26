@@ -94,7 +94,7 @@ class PlanningAdmin(admin.ModelAdmin):
     def delete_all(self, request, queryset):
         queryset.delete()
         messages.success(request, (_("All items have been deleted.")))
-        return redirect("admin:screen_planning_changelist")
+        return redirect("admin:scovie_planning_changelist")
 
     def changelist_view(self, request, extra_context=None):
         if request.POST.get('action') == 'delete_all':
