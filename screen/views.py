@@ -13,7 +13,7 @@ def index(request):
     # Get emergency status from configuration
     emergency_mode = config.emergency_mode
     # If emergency status is True
-    if emergency_mode == True:
+    if emergency_mode:
         # Force screen mode to emergency
         screen_mode = 'emergency'
         # Clean screen modes with only emergency
