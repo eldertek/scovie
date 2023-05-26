@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('screen', '0002_configuration_carnival_date_and_more'),
     ]

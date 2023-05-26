@@ -43,7 +43,7 @@ def index(request):
     temp = {
         'enterprise_name': config.enterprise_name,
         'planning': Planning.objects.all(),
-        'rooms':  Room.objects.filter(planning__teacher__isnull=False).distinct(),
+        'rooms': Room.objects.filter(planning__teacher__isnull=False).distinct(),
         'announcements': Announcement.objects.all(),
         'times': Time.objects.all(),
         'medias': Media.objects.all(),

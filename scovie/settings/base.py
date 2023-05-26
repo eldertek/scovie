@@ -188,9 +188,7 @@ LANGUAGES = [
 
 LANGUAGE_CODE = "fr"
 
-LOCALE_PATHS = [
-    BASE_PATH / 'locale'
-]
+LOCALE_PATHS = [BASE_PATH / 'locale']
 
 TIME_ZONE = "UTC"
 

@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('screen', '0001_initial'),
     ]
@@ -14,7 +13,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='configuration',
             name='carnival_date',
-            field=models.DateField(default=datetime.date(2023, 2, 21), verbose_name='carnival date'),
+            field=models.DateField(
+                default=datetime.date(2023, 2, 21), verbose_name='carnival date'
+            ),
         ),
         migrations.AddField(
             model_name='configuration',
@@ -24,7 +25,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='configuration',
             name='valentine_date',
-            field=models.DateField(default=datetime.date(2023, 2, 14), verbose_name='valentine date'),
+            field=models.DateField(
+                default=datetime.date(2023, 2, 14), verbose_name='valentine date'
+            ),
         ),
         migrations.AddField(
             model_name='configuration',

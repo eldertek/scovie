@@ -20,10 +20,7 @@ class LoginRequiredViewTestCase(HtmlAssertionMixin, TestCase):
             )
         self.assertEqual(
             logs.output,
-            [
-                'INFO:scovie.views:'
-                'User: "AnonymousUser" do not pass the "LoginRequired" check'
-            ],
+            ['INFO:scovie.views:' 'User: "AnonymousUser" do not pass the "LoginRequired" check'],
         )
 
         ###############################################################################
@@ -40,10 +37,7 @@ class LoginRequiredViewTestCase(HtmlAssertionMixin, TestCase):
             )
         self.assertEqual(
             logs.output,
-            [
-                'INFO:scovie.views:'
-                'User: "Mr. Test User" pass the "LoginRequired" check, ok.'
-            ],
+            ['INFO:scovie.views:' 'User: "Mr. Test User" pass the "LoginRequired" check, ok.'],
         )
         self.assert_messages(
             response, expected_messages=['You pass the "LoginRequired" check, ok.']

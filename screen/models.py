@@ -60,7 +60,7 @@ class Time(models.Model):
         ordering = ['rank']
 
     name = models.CharField(max_length=5, verbose_name=_("time"))
-    rank = models.IntegerField(verbose_name=_("display order"))   
+    rank = models.IntegerField(verbose_name=_("display order"))
 
     def __str__(self):
         return self.name
@@ -69,19 +69,20 @@ class Time(models.Model):
 class Planning(models.Model):
     class Meta:
         verbose_name = _("planning")
-        
+
     room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name=_("room"))
     time = models.ForeignKey(Time, on_delete=models.CASCADE, verbose_name=_("time"))
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, verbose_name=_("teacher"))
 
     def __str__(self):
-         return (_('Planning for {} in {} with {}').format(self.time.name, self.room.name, self.teacher.name))
+        return _('Planning for {} in {} with {}').format(
+            self.time.name, self.room.name, self.teacher.name
+        )
 
 
 class Configuration(SingletonModel):
     class Meta:
         verbose_name = _("parameters")
-
 
     enterprise_name = models.CharField(max_length=50, verbose_name=_("enterprise name"))
 
@@ -90,14 +91,22 @@ class Configuration(SingletonModel):
     emergency_subtitle = models.CharField(max_length=50, verbose_name=_("emergency subtitle"))
 
     carnival_day = models.BooleanField(default=False, verbose_name=_("carnival day"))
-    carnival_date = models.DateField(default=datetime.date(2023, 2, 21,), verbose_name=_("carnival date"))
+    carnival_date = models.DateField(
+        default=datetime.date(
+            2023,
+            2,
+            21,
+        ),
+        verbose_name=_("carnival date"),
+    )
 
     valentine_day = models.BooleanField(default=False, verbose_name=_("valentine day"))
-    valentine_date = models.DateField(default=datetime.date(2023, 2, 14), verbose_name=_("valentine date"))
+    valentine_date = models.DateField(
+        default=datetime.date(2023, 2, 14), verbose_name=_("valentine date")
+    )
 
     def __str__(self):
         return str(_("Application configuration"))
-
 
 
 class Media(models.Model):
@@ -112,4 +121,4 @@ class Media(models.Model):
         super().delete(*args, **kwargs)
 
     def __str__(self):
-        return (_("Image: {}").format(self.name))
+        return _("Image: {}").format(self.name)

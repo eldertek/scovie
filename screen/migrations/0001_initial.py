@@ -6,17 +6,20 @@ import screen.models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
             name='Announcement',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
                 ('type', models.CharField(max_length=20, unique=True, verbose_name='type')),
                 ('message', models.TextField(verbose_name='message')),
             ],
@@ -28,11 +31,28 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Configuration',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('enterprise_name', models.CharField(max_length=50, verbose_name='enterprise name')),
-                ('emergency_mode', models.BooleanField(default=False, verbose_name='emergency mode')),
-                ('emergency_title', models.CharField(max_length=50, verbose_name='emergency title')),
-                ('emergency_subtitle', models.CharField(max_length=50, verbose_name='emergency subtitle')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
+                (
+                    'enterprise_name',
+                    models.CharField(max_length=50, verbose_name='enterprise name'),
+                ),
+                (
+                    'emergency_mode',
+                    models.BooleanField(default=False, verbose_name='emergency mode'),
+                ),
+                (
+                    'emergency_title',
+                    models.CharField(max_length=50, verbose_name='emergency title'),
+                ),
+                (
+                    'emergency_subtitle',
+                    models.CharField(max_length=50, verbose_name='emergency subtitle'),
+                ),
             ],
             options={
                 'verbose_name': 'parameters',
@@ -41,9 +61,19 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Media',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
                 ('name', models.CharField(max_length=30, verbose_name='name')),
-                ('image', models.ImageField(upload_to=screen.models.format_filename, verbose_name='image')),
+                (
+                    'image',
+                    models.ImageField(
+                        upload_to=screen.models.format_filename, verbose_name='image'
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'media',
@@ -52,7 +82,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Room',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
                 ('name', models.CharField(max_length=15, verbose_name='room')),
             ],
             options={
@@ -63,7 +98,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Teacher',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
                 ('name', models.CharField(max_length=15, verbose_name='teacher')),
             ],
             options={
@@ -74,7 +114,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Time',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
                 ('name', models.CharField(max_length=5, verbose_name='time')),
                 ('rank', models.IntegerField(verbose_name='display order')),
             ],
@@ -86,10 +131,36 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Planning',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='screen.room', verbose_name='room')),
-                ('teacher', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='screen.teacher', verbose_name='teacher')),
-                ('time', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='screen.time', verbose_name='time')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                    ),
+                ),
+                (
+                    'room',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='screen.room',
+                        verbose_name='room',
+                    ),
+                ),
+                (
+                    'teacher',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='screen.teacher',
+                        verbose_name='teacher',
+                    ),
+                ),
+                (
+                    'time',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='screen.time',
+                        verbose_name='time',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'planning',
