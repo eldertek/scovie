@@ -21,6 +21,7 @@ packages = [{ include = "scovie" }]
 python = ">=3.9,<4.0.0"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
 django-solo = "^2.1.0"
 pillow = "^9.5.0"
+pip = "^23.1.2"
 
 [tool.poetry.dev-dependencies]
 django_yunohost_integration = "*"  # https://github.com/YunoHost-Apps/django_yunohost_integration
