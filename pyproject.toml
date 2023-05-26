@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scovie"
-version = "0.0.3"
+version = "0.0.4"
 description = "Scovie is an open-source digital signage system for high schools."
 authors = [
     "André Théo LAURET <andrelauret@eclipse-technology.eu>",
