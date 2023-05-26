@@ -2,7 +2,7 @@ import datetime
 
 from django.shortcuts import render
 
-from .models import Announcement, Configuration, Media, Planning, Room, Time
+from scovie.models import Announcement, Configuration, Media, Planning, Room, Time
 
 
 def index(request):

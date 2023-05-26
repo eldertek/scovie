@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'scovie.apps.ScovieAppConfig',
-    'screen.apps.ScreenAppConfig',
     'solo',
 ]
 
