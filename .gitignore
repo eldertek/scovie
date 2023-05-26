@@ -1,13 +1,13 @@
-# Ignore database
-db.sqlite3
-
-# Ignore environment
-.env
-virtualenv
-
-# Ignore all .pyc files
+.*
+coverage.json
+!.github
+!.editorconfig
+!.flake8
+!.gitignore
 __pycache__
-
-# Ignore static/uploads/image except image1.png
-static/uploads/image
-!static/uploads/image/image1.png
+*.sqlite3
+publish.log
+secret.txt
+/coverage.xml
+/htmlcov/
+/dist/

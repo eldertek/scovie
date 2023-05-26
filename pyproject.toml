@@ -1,0 +1,127 @@
+[tool.poetry]
+name = "scovie"
+version = "0.0.1"
+description = "Scovie is an open-source digital signage system for high schools."
+authors = [
+    "André Théo LAURET <andrelauret@eclipse-technology.eu>",
+]
+maintainers = [
+    "André Théo LAURET <andrelauret@eclipse-technology.eu>",
+]
+homepage = "https://github.com/eldertek/scovie"
+license = "GPL-3.0-or-later"
+readme = 'README.md'
+packages = [{ include = "scovie" }]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/eldertek/scovie/issues"
+
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0.0"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
+django-solo = "^2.1.0"
+pillow = "^9.5.0"
+
+[tool.poetry.dev-dependencies]
+django_yunohost_integration = "*"  # https://github.com/YunoHost-Apps/django_yunohost_integration
+bx_py_utils = "*"  # https://github.com/boxine/bx_py_utils
+django-tools = "*"  # https://github.com/jedie/django-tools/
+tox = "*"
+darker = "*"  # https://github.com/akaihola/pytest-darker
+coveralls = "*"
+isort = "*"
+flake8 = "*"
+EditorConfig = "*"  # https://github.com/editorconfig/editorconfig-core-py
+safety = "*"  # https://github.com/pyupio/safety
+requests = "*"  # https://github.com/psf/requests
+packaging = "*"  # https://github.com/pypa/packaging
+poetry-publish = '*'  # https://github.com/jedie/poetry-publish
+beautifulsoup4 = "*"  # https://pypi.org/project/beautifulsoup4/
+mypy = "*"  # https://github.com/python/mypy
+
+
+[tool.poetry.scripts]
+publish = "scovie.publish:publish"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.darker]
+src = ['.']
+revision = "origin/main..."
+line_length = 100
+verbose = true
+skip_string_normalization = true
+diff = false
+check = false
+stdout = false
+isort = true
+lint = [
+    "flake8",
+]
+log_level = "INFO"
+
+
+[tool.isort]
+# https://pycqa.github.io/isort/docs/configuration/config_files/#pyprojecttoml-preferred-format
+atomic=true
+profile='black'
+skip_glob=['.*', '*/htmlcov/*','*/migrations/*','*/local_test/*']
+known_first_party=['scovie']
+line_length=100
+lines_after_imports=2
+
+
+[tool.coverage.run]
+omit = ['.*', '*/tests/*']
+
+
+[tool.tox]
+# https://tox.readthedocs.io/en/latest/example/basic.html#pyproject-toml-tox-legacy-ini
+legacy_tox_ini = """
+[tox]
+isolated_build = True
+envlist = py{39,310}
+skip_missing_interpreters = True
+
+[testenv]
+passenv = *
+whitelist_externals = make
+commands =
+    make test
+"""
+
+
+[tool.mypy]
+warn_unused_configs = true
+ignore_missing_imports = true
+allow_redefinition = true  # https://github.com/python/mypy/issues/7165
+show_error_codes = true
+check_untyped_defs = true
+plugins = []
+exclude = ['.venv', 'tests']
+
+
+[manageprojects] # https://github.com/jedie/manageprojects
+initial_revision = "1a938d2"
+initial_date = 2022-11-21T19:40:33+01:00
+cookiecutter_template = "https://github.com/jedie/cookiecutter_templates"
+cookiecutter_directory = "poetry-python"
+applied_migrations = [
+    "dd69dcf", # 2022-11-22T19:48:28+01:00
+]
+
+[manageprojects.cookiecutter_context.cookiecutter]
+full_name = "André Théo LAURET"
+github_username = "eldertek"
+author_email = "andrelauret@eclipse-technology.eu"
+package_name = "scovie"
+package_version = "0.0.1"
+package_description = "Scovie is an open-source digital signage system for high schools."
+package_url = "https://github.com/eldertek/scovie"
+issues_url = "https://github.com/eldertek/scovie/issues"
+license = "GPL-3.0-or-later"
+_template = "https://github.com/jedie/cookiecutter_templates"

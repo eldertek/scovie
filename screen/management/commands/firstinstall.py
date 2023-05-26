@@ -14,58 +14,6 @@ class Command(BaseCommand):
         'Runs first install commands, be cautious ! This will delete all data in database !')
 
     def handle(self, *args, **options):
-        # Delete environment file
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            'Deleting environment file...'))
-        if os.path.isfile('.env'):
-            os.remove('.env')
-
-        # Create environment file
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            'Creating environment file...'))
-        with open('.env', 'w') as f:
-            f.write('# CONFIGURATION VARIABLES\n')
-        # Ask for language
-        language_code = input(self.style.NOTICE(
-            'What language do you prefer? (fr/en) ? '))
-        if language_code not in ['fr', 'en']:
-            raise CommandError(
-                'Invalid language code. Please enter either "fr" or "en".')
-        # Write LANGUAGE_CODE in environment file
-        with open('.env', 'a') as f:
-            f.write(f'LANGUAGE_CODE="{language_code}"\n')
-        # Activate the language
-        activate(language_code)
-        from django.utils.translation import gettext_lazy as _
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Generating secret key...')))
-        # Generate a new SECRET_KEY
-        secret_key = secrets.token_hex(24)
-        # Write SECRET_KEY in environment file
-        with open('.env', 'a') as f:
-            f.write(f'SECRET_KEY="{secret_key}"\n')
-
-        # Write DEBUG in environment file
-        with open('.env', 'a') as f:
-            f.write(f'DEBUG=False\n')
-
-        # Write ALLOWED_HOSTS in environment file
-        with open('.env', 'a') as f:
-            f.write(f'ALLOWED_HOSTS="127.0.0.1"\n')
-
-        # Write TIME_ZONE in environment file
-        with open('.env', 'a') as f:
-            f.write(f'TIME_ZONE="UTC"\n')
-
-        # Delete database
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Deleting database...')))
-        if os.path.isfile('db.sqlite3'):
-            os.remove('db.sqlite3')
-            
-        # Migrate
-        self.stdout.write(self.style.MIGRATE_HEADING(_('Running migrate...')))
-        os.system('python manage.py migrate')
         # Get config
         config = Configuration.get_solo()
         # Create default announcement types (absences, remplacements, informations)
@@ -105,7 +53,3 @@ class Command(BaseCommand):
         # Create media defaults
         Media.objects.create(
             name=_("Image 1"), image="static/uploads/image1.jpg")
-        # Create superuser
-        self.stdout.write(self.style.MIGRATE_HEADING(
-            _('Running createsuperuser...')))
-        os.system('python manage.py createsuperuser')

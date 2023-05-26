@@ -1,0 +1,56 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 2
+      matrix:
+        python-version: ["3.10", "3.9"]
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: 'fetch master'
+      run: |
+        git fetch origin main
+    - name: 'Set up Python ${{ matrix.python-version }}'
+      uses: actions/setup-python@v2
+      with:
+        python-version: '${{ matrix.python-version }}'
+
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/
+        key: dot-cache-files
+
+    - name: 'Install package'
+      run: |
+        make install-poetry
+        make install
+
+    - name: 'List installed packages'
+      run: |
+        poetry run pip freeze
+
+    - name: 'Run tests with Python v${{ matrix.python-version }}'
+      run: |
+        make test
+
+    - name: 'Run Safety check'
+      run: |
+        make safety
+
+    - name: 'Upload coverage report'
+      uses: codecov/codecov-action@v2
+      with:
+        fail_ci_if_error: false
+        verbose: true
