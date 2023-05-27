@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scovie"
-version = "0.0.4"
+version = "0.0.5"
 description = "Scovie is an open-source digital signage system for high schools."
 authors = [
     "André Théo LAURET <andrelauret@eclipse-technology.eu>",
@@ -120,7 +120,7 @@ full_name = "André Théo LAURET"
 github_username = "eldertek"
 author_email = "andrelauret@eclipse-technology.eu"
 package_name = "scovie"
-package_version = "0.0.4"
+package_version = "0.0.5"
 package_description = "Scovie is an open-source digital signage system for high schools."
 package_url = "https://github.com/eldertek/scovie"
 issues_url = "https://github.com/eldertek/scovie/issues"

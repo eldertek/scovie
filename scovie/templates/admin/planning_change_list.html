@@ -59,7 +59,7 @@
                 let time_name{{ plan.id }} = "{{ plan.time.name }}";
                 let teacher_name{{ plan.id }} = "{{ plan.teacher.name }}";
                 let td{{ plan.id }} = document.getElementById(room_name{{ plan.id }} + "-" + time_name{{ plan.id }});
-                td{{ plan.id }}.innerHTML = "<a href='{% url 'admin:screen_planning_change' plan.id %}'>" + teacher_name{{ plan.id }} + "</a>";
+                td{{ plan.id }}.innerHTML = "<a href='{% url 'admin:scovie_planning_change' plan.id %}'>" + teacher_name{{ plan.id }} + "</a>";
               {% endfor %}
             </script>
           </div>
