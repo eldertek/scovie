@@ -25,7 +25,7 @@ class Announcement(models.Model):
     message = models.TextField(verbose_name=_("message"))
 
     def __str__(self):
-        return self.type + " : " + self.message
+        return f"{self.type} : {self.message}"
 
 
 class Room(models.Model):
