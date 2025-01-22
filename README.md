@@ -30,6 +30,15 @@ To install Scovie, follow these steps (for linux systems):
 6. Voila ! You need now to deploy the application.
 
 **You need to deploy then, see below.**
+
+## Local development
+To run the application locally, follow these steps:
+
+1. Install poetry: `make install-poetry`
+2. Install scovie : `make install`
+3. Run the application: `make local-test`
+
+
 ## Deployment
 
 To deploy Scovie in a production environment, follow these steps:
