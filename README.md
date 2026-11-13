@@ -61,3 +61,8 @@ We welcome contributions to Scovie! If you would like to contribute, please foll
 If you need help with Scovie, please open an issue on the repository. We will do our best to assist you.
 
 Copyright (c) 2023 André Théo LAURET - All rights reserved
+
+## Commercial Support & Custom Integration
+
+Need custom features, enterprise integration, or priority support?
+Maintained by **[Eclipse Technology](https://eclipse-technology.eu)** ([contact@eclipse-technology.eu](mailto:contact@eclipse-technology.eu)).
