@@ -62,6 +62,11 @@ If you need help with Scovie, please open an issue on the repository. We will do
 
 Copyright (c) 2023 André Théo LAURET - All rights reserved
 
+## Security & Production Hygiene
+
+- Never run production with `DEBUG = True`; configure `SECRET_KEY`, `ALLOWED_HOSTS`, and database credentials via environment variables outside git.
+- Serve behind TLS with reverse-proxy timeouts and run `make safety` or `pip-audit` before every deployment.
+
 ## Commercial Support & Custom Integration
 
 Need custom features, enterprise integration, or priority support?
